@@ -1,23 +1,44 @@
+// imports
 import logo from './logo.svg';
 import './App.css';
+import { Route } from 'react-router-dom'
+
+// pages
+import Home from './pages/Home'
+import Signup from './pages/Signup'
+import Login from './pages/Login'
+
+// components
+import NavBar from './components/NavBar';
+import Messages from './components/Messages';
+
+// contexts
+import { UserContext } from './contexts/UserContext';
+import { MessageContext } from './contexts/MessageContext';
+
 
 function App() {
+  // contexts
+  const { userState, verifyUser } = useContext(UserContext);
+  const [ user, setUser ] = userState;
+  const { messageState, clearMessage } = useContext(MessageContext);
+  const [ message, setMessage ] = messageState;
+
+  // functions
+  useEffect(verifyUser, []);
+  useEffect(clearMessage, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar />
+
+      <Messages />
+
+      <Route exact path="/" return={() => <Home />} />
+
+      <Route exact path="/signup" render={() => {if (user.id) {return <Redirect to="/profile"/>} else {return <Signup />}}}/>
+
+      <Route exact path="/login" render={() => {if (user.id) {return <Redirect to="/profile"/>} else {return <Login />}}}/>
     </div>
   );
 }
