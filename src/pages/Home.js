@@ -32,7 +32,7 @@ const Home = () =>
 
     return (
         <div className="homePage">
-            {shouldRedirect !== '' ? <Redirect to={shouldRedirect}/> : null}
+            {/* {shouldRedirect !== '' ? <Redirect to={shouldRedirect}/> : null} */}
             <h1>Products</h1>
             {products ? products.length === 0 ? 'No products' : products : 'Getting products...'}
         </div>

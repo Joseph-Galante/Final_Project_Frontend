@@ -25,7 +25,7 @@ const NavBar = () =>
                         <Link className="navLink" to="/">Home</Link>
                     </span>
                     <span className="navRight">
-                        <Link className="navLink" to="/profile">Profile</Link>{' | '}
+                        <Link className="navLink" to="/profile">Profile</Link>
                         <Link className="navLink" id="logout" to="/" onClick={logoutUser}>Logout</Link>
                     </span>
                 </span>
@@ -35,7 +35,7 @@ const NavBar = () =>
                         <Link className="navLink" to="/">Home</Link>
                     </span>
                     <span className="navRight">
-                        <Link className="navLink" to="/signup">Signup</Link>{' | '}
+                        <Link className="navLink" to="/signup">Signup</Link>
                         <Link className="navLink" to="/login">Login</Link>
                     </span>
                 </span>

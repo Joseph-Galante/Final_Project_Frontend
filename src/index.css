@@ -14,56 +14,60 @@ code {
     monospace;
 }
 
+/* ==================== GENERAL INPUT ==================== */
+
+input[type=button], input[type=submit], a, #logout {
+  color:hsl(200, 90%, 50%);
+  border: 2px solid hsl(200, 90%, 50%);
+  text-decoration: none;
+  padding: 7px 20px;
+  margin: 5px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+input[type=button]:hover, input[type=submit]:hover, a:hover, #logout:hover {
+  cursor: pointer;
+  color: hsl(200, 90%, 25%);
+  border-color: hsl(200, 90%, 25%);
+}
+
 /* ==================== NAVBAR ==================== */
 
 nav {
   /* border: 1px solid red; */
   display: flex;
-  background-color: silver;
   flex-direction: column;
-  width: 99%;
-  height: 99px;
-  border-bottom: 2px solid silver;
+  background-color: hsla(0, 0%, 55%, 0.4);
+  height: 80px;
   position: sticky
 }
 
 .navLeft {
-  color: dodgerblue;
-  background-color: silver;
+  color: hsl(200, 90%, 50%);
   position: absolute;
   left: 20px;
-  top: 35px;
+  top: 27px;
   font-size: 20px;
   font-weight: bolder;
 }
 .navRight {
-  color: dodgerblue;
-  background-color: silver;
+  color: hsl(200, 90%, 50%);
   position: absolute;
   right: 20px;
-  top: 35px;
+  top: 27px;
   font-size: 20px;
   font-weight: bolder;
 }
-a {
-  color: hsl(255, 255, 1);
-  border: 2px solid hsl(255, 255, 1);
-  border-radius: 30%;
-  text-decoration: none;
-  padding: 20px;
-  margin: 5px;
-}
-a:hover {
-  color: whitesmoke;
-  border-color: whitesmoke;
-  border-radius: 30%;
-}
 #logout {
+  background-color: hsl(200, 90%, 50%);
   color: whitesmoke;
-  background-color: dodgerblue;
 }
 #logout:hover {
-  background-color: whitesmoke;
+  color: whitesmoke;
+  border-color: hsl(200, 90%, 25%);
+  background-color: hsl(200, 90%, 25%);
 }
 
 /* ==================== MESSAGES ==================== */
@@ -100,4 +104,30 @@ a:hover {
   justify-content: center;
 }
 
-/* ==================== MESSAGES ==================== */
+
+/* ==================== PROFILE ==================== */
+
+#editInfo {
+  width: 100px;
+  margin: 35px;
+}
+#cancel-changes {
+  margin: 35px 10px;
+  color: hsla(0, 0%, 20%);
+  border: 2px solid hsla(0, 0%, 20%);
+}
+#cancel-changes:hover {
+  color: hsla(0, 0%, 60%);
+  border: 2px solid hsla(0, 0%, 60%);
+}
+#save-changes {
+  margin: 35px 10px;
+  color: hsl(200, 90%, 50%);
+  border: 2px solid hsl(200, 90%, 50%);
+}
+#save-changes:hover {
+  color: hsl(200, 90%, 25%);
+  border: 2px solid hsl(200, 90%, 25%);
+}
+
+/* ==================== PROFILE ==================== */
