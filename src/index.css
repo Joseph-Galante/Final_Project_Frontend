@@ -19,9 +19,12 @@ code {
 nav {
   /* border: 1px solid red; */
   display: flex;
+  background-color: silver;
   flex-direction: column;
   width: 99%;
   height: 99px;
+  border-bottom: 2px solid silver;
+  position: sticky
 }
 
 .navLeft {
@@ -41,6 +44,26 @@ nav {
   top: 35px;
   font-size: 20px;
   font-weight: bolder;
+}
+a {
+  color: hsl(255, 255, 1);
+  border: 2px solid hsl(255, 255, 1);
+  border-radius: 30%;
+  text-decoration: none;
+  padding: 20px;
+  margin: 5px;
+}
+a:hover {
+  color: whitesmoke;
+  border-color: whitesmoke;
+  border-radius: 30%;
+}
+#logout {
+  color: whitesmoke;
+  background-color: dodgerblue;
+}
+#logout:hover {
+  background-color: whitesmoke;
 }
 
 /* ==================== MESSAGES ==================== */
@@ -75,21 +98,6 @@ nav {
 .homePage {
   display: flex;
   justify-content: center;
-}
-.about {
-  width: 50%;
-}
-.welcomeSign {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: silver;
-  color: dodgerblue;
-  padding: 1px 30px 1px 30px;
-  margin: 25px 0 0 0;
-  border-radius: 7%;
-  width: 60%;
 }
 
 /* ==================== MESSAGES ==================== */

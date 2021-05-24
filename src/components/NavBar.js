@@ -26,7 +26,7 @@ const NavBar = () =>
                     </span>
                     <span className="navRight">
                         <Link className="navLink" to="/profile">Profile</Link>{' | '}
-                        <Link className="navLink" to="/" onClick={logoutUser}>Logout</Link>
+                        <Link className="navLink" id="logout" to="/" onClick={logoutUser}>Logout</Link>
                     </span>
                 </span>
                 :

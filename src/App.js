@@ -1,6 +1,4 @@
 // imports
-import logo from './logo.svg';
-import './App.css';
 import { useContext, useEffect } from 'react'
 import { Redirect, Route } from 'react-router-dom'
 
