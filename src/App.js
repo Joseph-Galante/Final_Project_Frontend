@@ -1,7 +1,8 @@
 // imports
 import logo from './logo.svg';
 import './App.css';
-import { Route } from 'react-router-dom'
+import { useContext, useEffect } from 'react'
+import { Redirect, Route } from 'react-router-dom'
 
 // pages
 import Home from './pages/Home'
