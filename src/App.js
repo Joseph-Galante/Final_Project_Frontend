@@ -7,6 +7,7 @@ import Home from './pages/Home'
 import Signup from './pages/Signup'
 import Login from './pages/Login'
 import Profile from './pages/Profile'
+import ProductDetails from './pages/ProductDetails'
 
 // components
 import NavBar from './components/NavBar';
@@ -34,13 +35,15 @@ function App() {
 
       <Messages />
 
-      <Route exact path="/" return={() => <Home />} />
+      <Route exact path="/" render={() => <Home />} />
 
       <Route exact path="/signup" render={() => {if (user.id) {return <Redirect to="/profile"/>} else {return <Signup />}}}/>
 
       <Route exact path="/login" render={() => {if (user.id) {return <Redirect to="/profile"/>} else {return <Login />}}}/>
 
       <Route exact path="/profile" render={() => {if (user.id) {return <Profile />} else {return <Redirect to="/login"/>}}}/>
+
+      <Route exact path="/products/:id" render={(props) => {if (user.id) {return <ProductDetails productId={props.match.params.id} />} else {return <Redirect to="/login"/>}}}/>
     </div>
   );
 }
