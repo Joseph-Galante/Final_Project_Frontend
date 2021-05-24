@@ -22,8 +22,7 @@ const NavBar = () =>
             {user.id ?
                 <span>
                     <span className="navLeft">
-                        <Link className="navLink" to="/">Home</Link>{' | '}
-                        <Link className="navLink" to="/projects">Projects</Link>
+                        <Link className="navLink" to="/">Home</Link>
                     </span>
                     <span className="navRight">
                         <Link className="navLink" to="/profile">Profile</Link>{' | '}

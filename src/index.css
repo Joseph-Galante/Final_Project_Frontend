@@ -14,6 +14,33 @@ code {
     monospace;
 }
 
+/* ==================== NAVBAR ==================== */
+
+nav {
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  width: 99%;
+  height: 99px;
+}
+
+.navLeft {
+  color: dodgerblue;
+  position: absolute;
+  left: 20px;
+  top: 35px;
+  font-size: 20px;
+  font-weight: bolder;
+}
+.navRight {
+  color: dodgerblue;
+  position: absolute;
+  right: 20px;
+  top: 35px;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
 /* ==================== MESSAGES ==================== */
 .success {
   color: green;
@@ -40,5 +67,5 @@ code {
   z-index: 1;
 }
 
-/* ==================== MESSAGES ==================== */
+
 /* ==================== MESSAGES ==================== */
