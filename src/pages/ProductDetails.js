@@ -50,7 +50,7 @@ const ProductDetails = (props) =>
     useEffect(calcRating, [product.reviews])
 
     return (
-        <div className="productDetails">
+        <div className="product-details">
             {product ?
                 <div>
                     <h1>{product.name}</h1>

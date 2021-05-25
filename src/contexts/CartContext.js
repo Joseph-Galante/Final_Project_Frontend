@@ -47,7 +47,7 @@ const CartProvider = ({children}) => {
         }, {
             headers: { Authorization: user.id }
         })
-        console.log(res.data.item);
+        // console.log(res.data.item);
         getCart();
         displayMessage(true, 'Item added to cart')
     }
@@ -59,7 +59,7 @@ const CartProvider = ({children}) => {
         const res = await axios.delete(`${env.BACKEND_URL}/cart/${id}`, {
             headers: { Authorization: user.id }
         })
-        console.log(res.data.message);
+        // console.log(res.data.message);
         getCart();
     }
 

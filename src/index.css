@@ -8,6 +8,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   font-family: 'Roboto', sans-serif;
+  color: hsl(200, 90%, 50%);
+  background-color: hsl(0, 0%, 20%);
 }
 
 code {
@@ -17,7 +19,7 @@ code {
 
 /* ==================== GENERAL INPUT ==================== */
 
-input[type=button], input[type=submit], a, #logout, .menuItem {
+input[type=button], input[type=submit], a, #logout {
   color:hsl(200, 90%, 50%);
   border: 2px solid hsl(200, 90%, 50%);
   text-decoration: none;
@@ -28,7 +30,7 @@ input[type=button], input[type=submit], a, #logout, .menuItem {
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
 }
-input[type=button]:hover, input[type=submit]:hover, a:hover, #logout:hover, .menuItem:hover {
+input[type=button]:hover, input[type=submit]:hover, a:hover, #logout:hover {
   cursor: pointer;
   color: whitesmoke;
   border-color: hsl(200, 90%, 25%);
@@ -123,8 +125,8 @@ nav {
   border-bottom: 2px solid hsl(200, 90%, 50%);
 }
 .profileMenu {
-  border-top: 2px solid whitesmoke;
-  border-bottom: 2px solid whitesmoke;
+  border-top: 2px solid hsl(200, 90%, 50%);
+  border-bottom: 4px solid hsl(200, 90%, 50%);
   width: 100%;
   display: flex;
   justify-content: start;
@@ -154,25 +156,24 @@ nav {
 }
 .menuItem {
   color: hsl(200, 90%, 50%);
-  border: 2px solid hsl(200, 90%, 50%);
+  border-bottom: 4px solid hsl(200, 90%, 50%);
   border-radius: 2%;
   width: 12%;
-  height: 30px;
-  margin:-2px -1px -2px -1px;
+  height: 50px;
+  margin:-2px -1px -4px -1px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .menuItem:hover {
-  color: whitesmoke;
-  border-color: hsl(200, 90%, 25%);
-  background-color: hsl(200, 90%, 25%);
+  cursor: pointer;
+  color: hsl(0, 0%, 60%);
+  border-color: hsl(0, 0%, 60%);
   z-index: 2;
 }
 .active {
-  color: whitesmoke;
-  border-color: hsl(200, 90%, 25%);
-  background-color: hsl(200, 90%, 25%);
+  color: hsl(0, 0%, 90%);
+  border-color: hsl(0, 0%, 90%);
   z-index: 2;
 }
 
@@ -218,7 +219,7 @@ nav {
   display: flex;
   flex-direction: column;
   padding: 10px;
-  color: black;
+  color: hsl(0, 0%, 90%);
 }
 .product-listing-title {
   font-weight: 700;
@@ -243,6 +244,9 @@ nav {
   color: whitesmoke;
   background-color: hsl(200, 90%, 50%);
   border: 1px solid hsl(200, 90%, 50%);
+}
+.product-details {
+  color: hsl(0, 0%, 90%);
 }
 .product-details-listing-add {
   width: 400px;
@@ -289,7 +293,7 @@ nav {
   justify-content: space-between;
   padding: 10px;
   width: 400px;
-  border: 1px solid hsl(0, 0%, 20%);
+  border: 1px solid hsl(200, 90%, 50%);
 }
 .cart-payment-container {
   display: flex;
@@ -297,8 +301,22 @@ nav {
   justify-content: center;
 }
 .cart-checkout {
-  margin: 10px;
-  border: 1px solid hsl(0, 0%, 20%);
+  width: 400px;
+  margin: 20px;
+  padding: 10px;
+  text-align: center;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  color: whitesmoke;
+  background-color: hsl(200, 90%, 50%);
+  border: 1px solid hsl(200, 90%, 50%);
+}
+.cart-checkout:hover {
+  cursor: pointer;
+  background-color: hsl(200, 90%, 25%);
+  border: 1px solid hsl(200, 90%, 25%);
 }
 .checkout-form {
   display: flex;

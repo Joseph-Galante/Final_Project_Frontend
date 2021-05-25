@@ -88,7 +88,7 @@ const ShoppingCart = () => {
                         { checkingOut === false ? 
                         <span className="cart-checkout" onClick={()=>{
                             return setCheckingOut(true)
-                        }}>Checkout Cart</span>
+                        }}>Checkout</span>
                         :
                         null                           
                         }
