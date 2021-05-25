@@ -18,14 +18,14 @@ const UserProvider = ({children}) =>
                 headers: { Authorization: userId }
             }).then((res) =>
             {
-            // console.log(res);
+                // console.log(res);
             if(res.data.user)
             {
-                setUser({ id: res.data.user.id, name: res.data.user.name, email: res.data.user.email });
+                setUser(res.data.user);
             }
             }).catch((error) =>
             {
-            console.log(error.message);
+                console.log(error.message);
             })
         }
     }

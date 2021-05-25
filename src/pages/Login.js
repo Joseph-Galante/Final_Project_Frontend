@@ -30,7 +30,7 @@ const Login = () =>
         }).then((res) =>
         {
             // console.log(res);
-            setUser({ id: res.data.user.id, name: res.data.user.name, email: res.data.user.email });
+            setUser(res.data.user);
             localStorage.setItem('userId', res.data.user.id);
         }).catch((error) =>
         {

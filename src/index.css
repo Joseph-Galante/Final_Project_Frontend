@@ -7,6 +7,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  font-family: 'Roboto', sans-serif;
 }
 
 code {
@@ -16,7 +17,7 @@ code {
 
 /* ==================== GENERAL INPUT ==================== */
 
-input[type=button], input[type=submit], a, #logout {
+input[type=button], input[type=submit], a, #logout, .menuItem {
   color:hsl(200, 90%, 50%);
   border: 2px solid hsl(200, 90%, 50%);
   text-decoration: none;
@@ -27,7 +28,7 @@ input[type=button], input[type=submit], a, #logout {
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
 }
-input[type=button]:hover, input[type=submit]:hover, a:hover, #logout:hover {
+input[type=button]:hover, input[type=submit]:hover, a:hover, #logout:hover, .menuItem:hover {
   cursor: pointer;
   color: hsl(200, 90%, 25%);
   border-color: hsl(200, 90%, 25%);
@@ -39,7 +40,7 @@ nav {
   /* border: 1px solid red; */
   display: flex;
   flex-direction: column;
-  background-color: hsla(0, 0%, 55%, 0.4);
+  background-color: hsla(0, 0%, 70%, 0.35);
   height: 80px;
   position: sticky
 }
@@ -72,10 +73,10 @@ nav {
 
 /* ==================== MESSAGES ==================== */
 .success {
-  color: green;
+  color: hsl(200, 90%, 50%);
   background-color: whitesmoke;
   border-radius: 3%;
-  border: 2px solid green;
+  border: 2px solid hsl(200, 90%, 50%);
   padding: 8px;
   width: 90%;
   margin: 10px;
@@ -110,6 +111,24 @@ nav {
 
 /* ==================== PROFILE ==================== */
 
+.profilePage {
+  color: hsl(200, 90%, 50%);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.profileHeader {
+  border-bottom: 2px solid hsl(200, 90%, 50%);
+}
+.profileMenu {
+  border-top: 2px solid whitesmoke;
+  border-bottom: 2px solid whitesmoke;
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
 #editInfo {
   width: 100px;
   margin: 35px;
@@ -131,6 +150,29 @@ nav {
 #save-changes:hover {
   color: hsl(200, 90%, 25%);
   border: 2px solid hsl(200, 90%, 25%);
+}
+.menuItem {
+  color: hsl(200, 90%, 50%);
+  border: 2px solid hsl(200, 90%, 50%);
+  border-radius: 2%;
+  width: 12%;
+  height: 30px;
+  margin:-2px -1px -2px -1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menuItem:hover {
+  color: whitesmoke;
+  border-color: hsl(0, 0%, 20%);
+  background-color: hsl(200, 90%, 25%);
+  z-index: 2;
+}
+.active {
+  color: whitesmoke;
+  border-color: hsl(0, 0%, 20%);
+  background-color: hsl(200, 90%, 25%);
+  z-index: 2;
 }
 
 /* ==================== PRODUCTS ==================== */
@@ -197,7 +239,7 @@ nav {
   text-align: center;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
-  color: white;
+  color: whitesmoke;
   background-color: hsl(200, 90%, 50%);
   border: 1px solid hsl(200, 90%, 50%);
 }
@@ -209,7 +251,7 @@ nav {
   border-top-right-radius: 20px;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
-  color: white;
+  color: whitesmoke;
   background-color: hsl(200, 90%, 50%);
   border: 1px solid hsl(200, 90%, 50%);
 }
@@ -246,7 +288,7 @@ nav {
   justify-content: space-between;
   padding: 10px;
   width: 400px;
-  border: 1px solid green;
+  border: 1px solid hsl(0, 0%, 20%);
 }
 .cart-payment-container {
   display: flex;
@@ -255,12 +297,16 @@ nav {
 }
 .cart-checkout {
   margin: 10px;
-  border: 1px solid green;
+  border: 1px solid hsl(0, 0%, 20%);
 }
 .checkout-form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
+/* ==================== ORDERS ==================== */
+
+
 
 /* ==================== PRODUCTS ==================== */

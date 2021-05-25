@@ -32,7 +32,7 @@ const ShoppingCart = () => {
 
     const createOrder = async () => {
         const userId = localStorage.getItem('userId')
-        let response = await axios.post(`${env.BACKEND_URL}/orders`,{
+        let res = await axios.post(`${env.BACKEND_URL}/orders`,{
             address: address,
             city: city,
             state: state,
@@ -68,10 +68,9 @@ const ShoppingCart = () => {
                     </form>
                 </div>    
             }
-            <span className="cart-headline">Your current order</span>
             {/* if cart exists, check if cart is empty, display cart items if cart exists and is not empty, display loading message if cart doesn't exist */}
             <div className="cart-items-container">
-            {cart ? cart.length === 0 ? 'Empty cart' : cart.map((item, i) => {return (
+            {cart ? cart.length === 0 ? 'Your cart is empty' : cart.map((item, i) => {return (
                 <div className="cart-item" key={i}>
                     <span>{item.product.name} - ${item.product.price}</span>
                     <input type="button" value="Remove" onClick={() => {removeFromCart(item.id)}} />
@@ -82,13 +81,10 @@ const ShoppingCart = () => {
 
             {
                 cart ? cart.length === 0 ?
-                    <div className="cart-payment-container">
-                        <span className="cart-total-price">Price:</span>
-                    </div>
-
+                    null
                     :
                     <div className="cart-payment-container">
-                        <span className="cart-total-price">Price: {total}</span>
+                        <span className="cart-total-price">Price: ${total}</span>
                         { checkingOut === false ? 
                         <span className="cart-checkout" onClick={()=>{
                             return setCheckingOut(true)

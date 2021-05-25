@@ -3,6 +3,7 @@ import env from 'react-dotenv'
 import axios from 'axios'
 import userEvent from '@testing-library/user-event'
 import { UserContext } from '../contexts/UserContext'
+import { MessageContext } from '../contexts/MessageContext'
 
 const CartContext = createContext()
 
@@ -10,6 +11,8 @@ const CartProvider = ({children}) => {
     // contexts
     const {userState} = useContext(UserContext)
     const [user] = userState
+    const { messageState, displayMessage } = useContext(MessageContext)
+    const [message, setMessage] = messageState
 
     const [cart, setCart] = useState([])
     const [total, setTotal] = useState(0);
@@ -46,6 +49,7 @@ const CartProvider = ({children}) => {
         })
         console.log(res.data.item);
         getCart();
+        displayMessage(true, 'Item added to cart')
     }
     
     // remove item from cart

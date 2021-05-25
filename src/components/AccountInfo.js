@@ -25,7 +25,7 @@ const AccountInfo = () =>
         axios.put(`${env.BACKEND_URL}/users/update`, { name, email }, { headers: { Authorization: user.id }}).then((res) =>
         {
             // console.log(res);
-            setUser({ id: res.data.user.id, name: res.data.user.name, email: res.data.user.email });
+            setUser(res.data.user);
             localStorage.setItem('userId', res.data.user.id);
             setEditing(false);
             displayMessage(true, 'Profile updated successfully.');
@@ -47,7 +47,6 @@ const AccountInfo = () =>
     return (
         <div key="profileDisplay" className="profileDisplay">
             <h1 className="profileHeader">Account Info</h1>
-            <span>------------------------------------------------------</span>
             <div className="profileInfo">
                 <div key="labels" className="labels">
                     <div key="nameLabel" className="label">Name:</div>
