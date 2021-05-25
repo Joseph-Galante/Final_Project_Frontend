@@ -30,8 +30,9 @@ input[type=button], input[type=submit], a, #logout, .menuItem {
 }
 input[type=button]:hover, input[type=submit]:hover, a:hover, #logout:hover, .menuItem:hover {
   cursor: pointer;
-  color: hsl(200, 90%, 25%);
+  color: whitesmoke;
   border-color: hsl(200, 90%, 25%);
+  background-color: hsl(200, 90%, 25%);
 }
 
 /* ==================== NAVBAR ==================== */
@@ -164,13 +165,13 @@ nav {
 }
 .menuItem:hover {
   color: whitesmoke;
-  border-color: hsl(0, 0%, 20%);
+  border-color: hsl(200, 90%, 25%);
   background-color: hsl(200, 90%, 25%);
   z-index: 2;
 }
 .active {
   color: whitesmoke;
-  border-color: hsl(0, 0%, 20%);
+  border-color: hsl(200, 90%, 25%);
   background-color: hsl(200, 90%, 25%);
   z-index: 2;
 }
