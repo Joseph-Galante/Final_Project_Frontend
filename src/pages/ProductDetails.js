@@ -86,6 +86,7 @@ const ProductDetails = (props) =>
                     <h1>{product.name}</h1>
                     <p>Price: ${product.price}</p>
                     <p>Rating: {rating}</p>
+                    <p id="soldBy">Sold by: {product.seller.name}</p>
 
                     <span className="product-details-listing-add" onClick={() => {addToCart(product.id)}}>Add to Cart</span> 
 
