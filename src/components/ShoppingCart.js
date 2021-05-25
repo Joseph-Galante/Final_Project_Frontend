@@ -17,7 +17,6 @@ const ShoppingCart = () => {
     const [zip, setZip] = useState('');
     const [state, setState] = useState('');
     const [card, setCard] = useState('');
-    const [redirect, setRedirect] = useState(false)
 
     // on component load
     useEffect(getCart, []);
@@ -27,7 +26,6 @@ const ShoppingCart = () => {
         createOrder()
         setCart([])
         setCheckingOut(false)
-        setRedirect(true)
     }
 
     const createOrder = async () => {
@@ -50,7 +48,6 @@ const ShoppingCart = () => {
 
     return (
         <div className="cart-container">
-            { redirect && <Redirect to='/orders' />}
             { checkingOut &&
                 <div className="checkout-container">
                     <form className="checkoutForm" onSubmit={handleCheckout}>
@@ -84,7 +81,7 @@ const ShoppingCart = () => {
                     null
                     :
                     <div className="cart-payment-container">
-                        <span className="cart-total-price">Price: ${total}</span>
+                        <span className="cart-total-price">Total: ${total}</span>
                         { checkingOut === false ? 
                         <span className="cart-checkout" onClick={()=>{
                             return setCheckingOut(true)
@@ -92,9 +89,7 @@ const ShoppingCart = () => {
                         :
                         null                           
                         }
-                     
-                    </div>    
-
+                    </div>
                     : 
                     null
             }

@@ -11,12 +11,12 @@ const Orders = () => {
     return (
         <div key="profileDisplay" className="profileDisplay">
             <div className="orders-container">
-                { user.orders ? user.orders.length === 0 ? 'You have no orders' : user.orders.map((item, i) => {
+                { user.orders ? user.orders.length === 0 ? 'You have no orders' : user.orders.map((order, i) => {
                     return (
                         <div key={i}>
-                            <span>{item.address}</span>
+                            <span>{order.address}</span>
                             <div>
-                                {item.cart_items.map((cartItem, i) => {
+                                {order.cart_items.map((cartItem, i) => {
                                     return (
                                         <div key={i}>
                                             {cartItem.product.name}

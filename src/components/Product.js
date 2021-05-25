@@ -12,11 +12,6 @@ const Product = ({ product }) =>
     const [redirect, setRedirect] = useState('')
 
     return (
-        // <div className="product" onClick={() => {setRedirect(`/products/${product.id}`)}}>
-        //     {redirect !== '' ? <Redirect to={redirect} /> : null}
-        //     <h3>{product.name} | {product.description}</h3>
-        //     <span className="product-listing-add" onClick={() => {addToCart(product.id)}}>Add to Cart</span> 
-        // </div>
         <div className="single-container">
             {redirect !== '' ? <Redirect to={redirect} /> : null}
             { product !== null ? 
