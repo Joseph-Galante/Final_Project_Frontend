@@ -1,12 +1,19 @@
 import env from 'react-dotenv'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import axios from 'axios'
+
+// contexts
+import { CartContext } from '../contexts/CartContext'
 
 // components
 import Review from '../components/Review'
 
 const ProductDetails = (props) =>
 {
+    // contexts    
+    const { cartState, addToCart } = useContext(CartContext);
+    const [ cart ] = cartState;
+
     // states
     const [product, setProduct] = useState({})
     const [rating, setRating] = useState(0)
@@ -16,7 +23,7 @@ const ProductDetails = (props) =>
     {
         axios.get(`${env.BACKEND_URL}/products/${props.productId}`).then((res) =>
         {
-            console.log(res)
+            // console.log(res)
             setProduct(res.data.product)
         })
     }
@@ -31,13 +38,13 @@ const ProductDetails = (props) =>
             if (product.reviews.length > 0)
             {
                 product.reviews.forEach(review => {
-                    console.log(res)
+                    // console.log(res)
                     res += review.review.rating;
                 })
                 res /= product.reviews.length;
             }
         }
-        console.log('final res', res)
+        // console.log('final res', res)
         setRating(res)
     }
     useEffect(calcRating, [product.reviews])
@@ -48,8 +55,11 @@ const ProductDetails = (props) =>
                 <div>
                     <h1>{product.name}</h1>
                     <h3>Description: {product.description}</h3>
-                    <p>Price: {product.price}</p>
+                    <p>Price: ${product.price}</p>
                     <p>Rating: {rating}</p>
+
+                    <span className="product-details-listing-add" onClick={() => {addToCart(product.id)}}>Add to Cart</span> 
+
                     <h2>Reviews:</h2>
                     {product.reviews ? product.reviews.length == 0 ?
                         'No reviews'
@@ -57,7 +67,7 @@ const ProductDetails = (props) =>
                         product.reviews.map(review =>
                         {
                             return (
-                                <Review review={review.review}/>
+                                <Review key={review.review.id} review={review.review}/>
                             )
                         })
                         : 
@@ -65,7 +75,7 @@ const ProductDetails = (props) =>
                     }
                 </div>
                 :
-                'Getting product...'
+                'Getting product details...'
             }
         </div>
     )

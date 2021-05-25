@@ -133,4 +133,134 @@ nav {
   border: 2px solid hsl(200, 90%, 25%);
 }
 
-/* ==================== PROFILE ==================== */
+/* ==================== PRODUCTS ==================== */
+
+.all-products-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+.product-listing-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+  border: 1px solid hsl(200, 90%, 50%);
+  border-radius: 20px;
+}
+.product-listing-details {
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+}
+.product-listing-left {
+  height: 200px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.product-listing-image {
+  object-fit: contain;
+  width: 180px;
+  height: 180px;
+  border-radius: 10px;
+}
+.product-listing-right {
+  height: 200px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  color: black;
+}
+.product-listing-title {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.product-listing-price {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+.product-listing-description {
+  font-size: 14px;
+  font-style: italic;
+}
+.product-listing-add {
+  width: 400px;
+  padding: 10px;
+  text-align: center;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  color: white;
+  background-color: hsl(200, 90%, 50%);
+  border: 1px solid hsl(200, 90%, 50%);
+}
+.product-details-listing-add {
+  width: 400px;
+  padding: 10px;
+  text-align: center;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  color: white;
+  background-color: hsl(200, 90%, 50%);
+  border: 1px solid hsl(200, 90%, 50%);
+}
+.product-listing-add:hover {
+  cursor: pointer;
+  background-color: hsl(200, 90%, 25%);
+  border: 1px solid hsl(200, 90%, 25%);
+}
+.product-details-listing-add:hover {
+  cursor: pointer;
+  background-color: hsl(200, 90%, 25%);
+  border: 1px solid hsl(200, 90%, 25%);
+}
+.single-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.single-container:hover {
+  cursor: pointer;
+}
+
+/* ==================== CART ==================== */
+
+.cart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+}
+.cart-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  width: 400px;
+  border: 1px solid green;
+}
+.cart-payment-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.cart-checkout {
+  margin: 10px;
+  border: 1px solid green;
+}
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ==================== PRODUCTS ==================== */
