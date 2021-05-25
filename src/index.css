@@ -176,6 +176,10 @@ nav {
   border-color: hsl(0, 0%, 90%);
   z-index: 2;
 }
+#leave-review {
+  position: relative;
+  left: 64.5%;
+}
 
 /* ==================== PRODUCTS ==================== */
 
