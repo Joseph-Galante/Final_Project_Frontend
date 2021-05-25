@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { CartContext } from '../contexts/CartContext';
+import { UserContext } from '../contexts/UserContext';
 import env from 'react-dotenv'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
@@ -9,6 +10,7 @@ const ShoppingCart = () => {
     const { cartState, totalState, orderTotal, getCart, addToCart, removeFromCart } = useContext(CartContext);
     const [ cart, setCart ] = cartState;
     const [ total, setTotal ] = totalState;
+    const { verifyUser } = useContext(UserContext);
 
     // states
     const [checkingOut, setCheckingOut] = useState(false);
@@ -43,6 +45,7 @@ const ShoppingCart = () => {
                 Authorization: userId
             }
         })
+        verifyUser()
     }
 
 
