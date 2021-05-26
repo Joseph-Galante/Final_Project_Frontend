@@ -64,11 +64,11 @@ nav {
   font-size: 20px;
   font-weight: bolder;
 }
-#logout {
+#logout, #login {
   background-color: hsl(200, 90%, 50%);
   color: whitesmoke;
 }
-#logout:hover {
+#logout:hover, #login:hover {
   color: whitesmoke;
   border-color: hsl(200, 90%, 25%);
   background-color: hsl(200, 90%, 25%);
@@ -282,6 +282,14 @@ nav {
   flex-direction: column;
   align-items: center;
 }
+#soldBy {
+  color:hsl(200, 90%, 50%);
+}
+#soldBy:hover {
+  color:hsl(0, 0%, 90%);
+  text-decoration: underline;
+  cursor: pointer;
+}
 
 /* ==================== CART ==================== */
 
@@ -334,4 +342,15 @@ nav {
 
 
 
-/* ==================== PRODUCTS ==================== */
+/* ==================== REVIEWS ==================== */
+
+#done-reviewing {
+  color:hsl(200, 90%, 50%);
+}
+#done-reviewing:hover {
+  color:hsl(0, 0%, 90%);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* ==================== REVIEWS ==================== */

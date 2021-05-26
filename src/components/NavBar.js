@@ -36,7 +36,7 @@ const NavBar = () =>
                     </span>
                     <span className="navRight">
                         <Link className="navLink" to="/signup">Signup</Link>
-                        <Link className="navLink" to="/login">Login</Link>
+                        <Link className="navLink" id="login" to="/login">Login</Link>
                     </span>
                 </span>
             }

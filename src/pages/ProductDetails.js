@@ -9,9 +9,13 @@ import { CartContext } from '../contexts/CartContext'
 import Review from '../components/Review'
 import { UserContext } from '../contexts/UserContext'
 import { MessageContext } from '../contexts/MessageContext'
+import { Redirect, useHistory } from 'react-router-dom'
 
 const ProductDetails = (props) =>
 {
+    // variables
+    const history = useHistory();
+
     // contexts
     const { userState, verifyUser } = useContext(UserContext);
     const [ user ] = userState;
@@ -20,6 +24,7 @@ const ProductDetails = (props) =>
     const { displayMessage, clearMessage } = useContext(MessageContext);
 
     // states
+    const [redirect, setRedirect] = useState('')
     const [product, setProduct] = useState({})
     const [rating, setRating] = useState(0)
     const [display, setDisplay] = useState('description');
@@ -81,12 +86,19 @@ const ProductDetails = (props) =>
 
     return (
         <div className="product-details">
+            {redirect !== '' ? <Redirect to={redirect} /> : null}
             {product ?
                 <div>
+                    {/* {console.log(product)} */}
                     <h1>{product.name}</h1>
                     <p>Price: ${product.price}</p>
                     <p>Rating: {rating}</p>
-                    <p id="soldBy">Sold by: {product.seller.name}</p>
+                    <p id="soldBy" onClick={() => {
+                        localStorage.setItem('revieweeId', product.seller.id);
+                        history.push(`/products/${product.id}`);
+                        setRedirect(`/reviews/users`);
+                    }}
+                    >Sold by: {product.seller ? product.seller.name : '(Unknown)'}</p>
 
                     <span className="product-details-listing-add" onClick={() => {addToCart(product.id)}}>Add to Cart</span> 
 
