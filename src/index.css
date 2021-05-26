@@ -1,0 +1,356 @@
+/* ==================== BODY ==================== */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  color: hsl(200, 90%, 50%);
+  background-color: hsl(0, 0%, 20%);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* ==================== GENERAL INPUT ==================== */
+
+input[type=button], input[type=submit], a, #logout {
+  color:hsl(200, 90%, 50%);
+  border: 2px solid hsl(200, 90%, 50%);
+  text-decoration: none;
+  padding: 7px 20px;
+  margin: 5px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+input[type=button]:hover, input[type=submit]:hover, a:hover, #logout:hover {
+  cursor: pointer;
+  color: whitesmoke;
+  border-color: hsl(200, 90%, 25%);
+  background-color: hsl(200, 90%, 25%);
+}
+
+/* ==================== NAVBAR ==================== */
+
+nav {
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  background-color: hsla(0, 0%, 70%, 0.35);
+  height: 80px;
+  position: sticky
+}
+
+.navLeft {
+  color: hsl(200, 90%, 50%);
+  position: absolute;
+  left: 20px;
+  top: 27px;
+  font-size: 20px;
+  font-weight: bolder;
+}
+.navRight {
+  color: hsl(200, 90%, 50%);
+  position: absolute;
+  right: 20px;
+  top: 27px;
+  font-size: 20px;
+  font-weight: bolder;
+}
+#logout, #login {
+  background-color: hsl(200, 90%, 50%);
+  color: whitesmoke;
+}
+#logout:hover, #login:hover {
+  color: whitesmoke;
+  border-color: hsl(200, 90%, 25%);
+  background-color: hsl(200, 90%, 25%);
+}
+
+/* ==================== MESSAGES ==================== */
+.success {
+  color: hsl(200, 90%, 50%);
+  background-color: whitesmoke;
+  border-radius: 3%;
+  border: 2px solid hsl(200, 90%, 50%);
+  padding: 8px;
+  width: 90%;
+  margin: 10px;
+  position: absolute;
+  top: 60px;
+  z-index: 1;
+}
+.failure {
+  color: red;
+  background-color: whitesmoke;
+  border-radius: 3%;
+  border: 2px solid red;
+  padding: 8px;
+  width: 90%;
+  margin: 10px;
+  position: absolute;
+  top: 60px;
+  z-index: 1;
+}
+
+
+/* ==================== HOME ==================== */
+
+.homePage {
+  display: flex;
+  justify-content: center;
+}
+.product:hover {
+  cursor: pointer;
+}
+
+
+/* ==================== PROFILE ==================== */
+
+.profilePage {
+  color: hsl(200, 90%, 50%);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.profileHeader {
+  border-bottom: 2px solid hsl(200, 90%, 50%);
+}
+.profileMenu {
+  border-top: 2px solid hsl(200, 90%, 50%);
+  border-bottom: 4px solid hsl(200, 90%, 50%);
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+#editInfo {
+  width: 100px;
+  margin: 35px;
+}
+#cancel-changes {
+  margin: 35px 10px;
+  color: hsla(0, 0%, 20%);
+  border: 2px solid hsla(0, 0%, 20%);
+}
+#cancel-changes:hover {
+  color: hsla(0, 0%, 60%);
+  border: 2px solid hsla(0, 0%, 60%);
+}
+#save-changes {
+  margin: 35px 10px;
+  color: hsl(200, 90%, 50%);
+  border: 2px solid hsl(200, 90%, 50%);
+}
+#save-changes:hover {
+  color: hsl(200, 90%, 25%);
+  border: 2px solid hsl(200, 90%, 25%);
+}
+.menuItem {
+  color: hsl(200, 90%, 50%);
+  border-bottom: 4px solid hsl(200, 90%, 50%);
+  border-radius: 2%;
+  width: 12%;
+  height: 50px;
+  margin:-2px -1px -4px -1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menuItem:hover {
+  cursor: pointer;
+  color: hsl(0, 0%, 60%);
+  border-color: hsl(0, 0%, 60%);
+  z-index: 2;
+}
+.active {
+  color: hsl(0, 0%, 90%);
+  border-color: hsl(0, 0%, 90%);
+  z-index: 2;
+}
+#leave-review {
+  position: relative;
+  left: 64.5%;
+}
+
+/* ==================== PRODUCTS ==================== */
+
+.all-products-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+.product-listing-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+  border: 1px solid hsl(200, 90%, 50%);
+  border-radius: 20px;
+}
+.product-listing-details {
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+}
+.product-listing-left {
+  height: 200px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.product-listing-image {
+  object-fit: contain;
+  width: 180px;
+  height: 180px;
+  border-radius: 10px;
+}
+.product-listing-right {
+  height: 200px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  color: hsl(0, 0%, 90%);
+}
+.product-listing-right:hover {
+  cursor: pointer;
+}
+.product-listing-title {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.product-listing-price {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+.product-listing-description {
+  font-size: 14px;
+  font-style: italic;
+}
+.product-listing-add {
+  width: 400px;
+  padding: 10px;
+  text-align: center;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  color: whitesmoke;
+  background-color: hsl(200, 90%, 50%);
+  border: 1px solid hsl(200, 90%, 50%);
+}
+.product-details {
+  color: hsl(0, 0%, 90%);
+}
+.product-details-listing-add {
+  width: 400px;
+  padding: 10px;
+  text-align: center;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  color: whitesmoke;
+  background-color: hsl(200, 90%, 50%);
+  border: 1px solid hsl(200, 90%, 50%);
+}
+.product-listing-add:hover {
+  cursor: pointer;
+  background-color: hsl(200, 90%, 25%);
+  border: 1px solid hsl(200, 90%, 25%);
+}
+.product-details-listing-add:hover {
+  cursor: pointer;
+  background-color: hsl(200, 90%, 25%);
+  border: 1px solid hsl(200, 90%, 25%);
+}
+.single-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#soldBy {
+  color:hsl(200, 90%, 50%);
+}
+#soldBy:hover {
+  color:hsl(0, 0%, 90%);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* ==================== CART ==================== */
+
+.cart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+}
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  width: 400px;
+  margin: 15px;
+  border: 1px solid hsl(200, 90%, 50%);
+}
+.cart-payment-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 20px 0 0 0;
+}
+.cart-checkout {
+  width: 400px;
+  margin: 30px 0 0 0;
+  padding: 10px;
+  text-align: center;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  color: whitesmoke;
+  background-color: hsl(200, 90%, 50%);
+  border: 1px solid hsl(200, 90%, 50%);
+}
+.cart-checkout:hover {
+  cursor: pointer;
+  background-color: hsl(200, 90%, 25%);
+  border: 1px solid hsl(200, 90%, 25%);
+}
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ==================== ORDERS ==================== */
+
+
+
+/* ==================== REVIEWS ==================== */
+
+#done-reviewing {
+  color:hsl(200, 90%, 50%);
+}
+#done-reviewing:hover {
+  color:hsl(0, 0%, 90%);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* ==================== REVIEWS ==================== */
