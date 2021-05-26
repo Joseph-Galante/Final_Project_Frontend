@@ -72,9 +72,9 @@ const Product = ({ product, getProducts, getHomeProducts }) =>
                             {product.seller ?
                                 user.id === product.seller.id ?
                                     editingPrice ?
-                                        <div>
-                                            <input type="button" value="Cancel" onClick={() => {setEditingPrice(false)}}/>
-                                            <input type="button" value="Save" onClick={() => {updatePrice(); setEditingPrice(false)}}/>
+                                        <div className="edit-price-buttons">
+                                            <input id="save-price-change" type="button" value="Save" onClick={() => {updatePrice(); setEditingPrice(false)}}/>
+                                            <input id="cancel-price-change" type="button" value="Cancel" onClick={() => {setEditingPrice(false)}}/>
                                         </div>
                                         :
                                         <input type="button" value="Edit" onClick={() => {setEditingPrice(true)}}/>

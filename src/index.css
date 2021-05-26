@@ -21,7 +21,7 @@ code {
 
 input[type=button], input[type=submit], a, #logout {
   color:hsl(200, 90%, 50%);
-  border: 2px solid hsl(200, 90%, 50%);
+  border: 2px solid hsl(0, 0%, 20%);
   text-decoration: none;
   padding: 7px 20px;
   margin: 5px;
@@ -33,7 +33,7 @@ input[type=button], input[type=submit], a, #logout {
 input[type=button]:hover, input[type=submit]:hover, a:hover, #logout:hover {
   cursor: pointer;
   color: whitesmoke;
-  border-color: hsl(200, 90%, 25%);
+  /* border-color: hsl(0, 0%, 90%); */
   background-color: hsl(200, 90%, 25%);
 }
 
@@ -64,7 +64,14 @@ nav {
   font-size: 20px;
   font-weight: bolder;
 }
+a {
+  border-color:hsl(200, 90%, 50%);
+}
+a:hover {
+  border-color:hsl(200, 90%, 25%);
+}
 #logout, #login {
+  border-color: hsl(200, 90%, 50%);
   background-color: hsl(200, 90%, 50%);
   color: whitesmoke;
 }
@@ -137,23 +144,29 @@ nav {
   width: 100px;
   margin: 35px;
 }
-#cancel-changes {
+#cancel-changes, #cancel-price-change {
   margin: 35px 10px;
   color: hsla(0, 0%, 20%);
   border: 2px solid hsla(0, 0%, 20%);
 }
-#cancel-changes:hover {
-  color: hsla(0, 0%, 60%);
-  border: 2px solid hsla(0, 0%, 60%);
+#cancel-changes:hover, #cancel-price-change:hover {
+  color: hsla(0, 0%, 90%);
+  background-color: hsl(0, 0%, 20%);
+  border: 2px solid hsl(0, 0%, 90%);
 }
-#save-changes {
+#save-changes, #save-price-change {
   margin: 35px 10px;
-  color: hsl(200, 90%, 50%);
+  color: hsl(0, 0%, 90%);
+  background-color: hsl(200, 90%, 50%);
   border: 2px solid hsl(200, 90%, 50%);
 }
-#save-changes:hover {
-  color: hsl(200, 90%, 25%);
+#save-changes:hover, #save-price-change:hover {
+  color: hsl(0, 0%, 90%);
+  background-color: hsl(200, 90%, 25%);
   border: 2px solid hsl(200, 90%, 25%);
+}
+#cancel-price-change, #save-price-change {
+  margin: 10px 10px;
 }
 .menuItem {
   color: hsl(200, 90%, 50%);
@@ -272,6 +285,9 @@ nav {
   font-size: 16px;
   margin-bottom: 5px;
   width: 20%;
+}
+.edit-price-buttons {
+  display: flex;
 }
 .product-listing-add {
   height: 100%;
