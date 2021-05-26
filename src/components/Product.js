@@ -20,13 +20,16 @@ const Product = ({ product }) =>
                     <div className="product-listing-left">
                         <img className="product-listing-image" src={product.image} alt={product.name} />
                     </div>
+                    <span className="product-listing-divider"/>
                     <div className="product-listing-right" onClick={() => {setRedirect(`/products/${product.id}`)}}>
-                        <span className="product-listing-title">{product.name}</span>
+                        <div className="product-listing-right-info">
+                            <span className="product-listing-title">{product.name}</span>
+                            <span className="product-listing-description">{product.description}</span>
+                        </div>
                         <span className="product-listing-price">${product.price}</span>
-                        <span className="product-listing-description">{product.description}</span>
                     </div>
+                    <span className="product-listing-add" onClick={() => {addToCart(product.id)}}>Add to Cart</span>        
                 </div>
-                <span className="product-listing-add" onClick={() => {addToCart(product.id)}}>Add to Cart</span>        
             </div>
             :
             <div>Loading...</div>

@@ -12,13 +12,15 @@ import AccountInfo from '../components/AccountInfo';
 import ShoppingCart from '../components/ShoppingCart';
 import Orders from '../components/Orders';
 import Product from '../components/Product';
+import AddProduct from '../components/AddProduct';
 
 const Profile = () =>
 {
     // contexts
     const {userState, verifyUser } = useContext(UserContext);
     const [user, setUser] = userState;
-    const { displayMessage, clearMessage } = useContext(MessageContext);
+    const { messageState, displayMessage, clearMessage } = useContext(MessageContext);
+    const [ message ] = messageState;
 
     // states
     const [display, setDisplay] = useState('account');
@@ -76,6 +78,13 @@ const Profile = () =>
                 }}>
                     <h4>Orders</h4>
                 </div>
+                <div id="create-product" key="create-product" className="menuItem" onClick={() => {
+                    setDisplay('create-product')
+                    document.querySelectorAll('.menuItem').forEach(item => {item.classList.remove('active')});
+                    document.querySelector('#create-product').classList.add('active');
+                }}>
+                    <h4>Add Product</h4>
+                </div>
             </div>
             {display === 'account' ?
                 <AccountInfo />
@@ -97,6 +106,9 @@ const Profile = () =>
                             :
                             display == 'orders' ?
                                 <Orders />
+                                :
+                                display == 'create-product' ?
+                                <AddProduct />
                                 :
                                 null
             }

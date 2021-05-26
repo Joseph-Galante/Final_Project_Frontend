@@ -34,12 +34,13 @@ const Home = () =>
     useEffect(getProducts, [])
 
     return (
-        <div className="homePage">
+        <div className="home-page">
             {/* {shouldRedirect !== '' ? <Redirect to={shouldRedirect}/> : null} */}
-            <h1>Products</h1>
-            {products ? products.length === 0 ? 'No products' : products.map(product => { return (
-                <Product key={product.id} product={product} />
-            )}) : 'Getting products...'}
+            <div className="product-list">
+                {products ? products.length === 0 ? 'No products' : products.map(product => { return (
+                    <Product key={product.id} product={product} />
+                )}) : 'Getting products...'}
+            </div>
         </div>
     )
 }
