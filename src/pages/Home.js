@@ -38,7 +38,7 @@ const Home = () =>
             {/* {shouldRedirect !== '' ? <Redirect to={shouldRedirect}/> : null} */}
             <div className="product-list">
                 {products ? products.length === 0 ? 'No products' : products.map(product => { return (
-                    <Product key={product.id} product={product} />
+                    <Product key={product.id} product={product} getHomeProducts={getProducts}/>
                 )}) : 'Getting products...'}
             </div>
         </div>

@@ -41,7 +41,7 @@ const Profile = () =>
     {
         axios.get(`${env.BACKEND_URL}/users/products`, { headers: { Authorization: localStorage.getItem('userId') }}).then((res) =>
         {
-            // console.log(res)
+            console.log(res)
             setProducts(res.data.products)
         }).catch(error => console.log(error.message))
     }
@@ -99,7 +99,7 @@ const Profile = () =>
                                 :
                                 products.map(product =>
                                 {
-                                    return <Product key={product.id} product={product} />
+                                    return <Product key={product.id} product={product} getProducts={getProducts}/>
                                 })
                                 :
                                 'Getting products...'

@@ -45,7 +45,7 @@ nav {
   flex-direction: column;
   background-color: hsla(0, 0%, 70%, 0.35);
   height: 80px;
-  position: sticky
+  position: sticky;
 }
 
 .navLeft {
