@@ -45,13 +45,12 @@ const AccountInfo = () =>
     }
 
     return (
-        <div key="profileDisplay" className="profileDisplay">
-            <h1 className="profileHeader">Account Info</h1>
-            <div className="profileInfo">
+        <div key="profile-display" className="profile-display">
+            <div className="profile-info">
                 <div key="labels" className="labels">
-                    <div key="nameLabel" className="label">Name:</div>
+                    <div key="name-label" className="label">Name:</div>
                     <br></br>
-                    <div key="emailLabel" className="label">Email:</div>
+                    <div key="email-label" className="label">Email:</div>
                 </div>
                 {editing ?    
                     <div key="info-inputs" className="info-inputs">
@@ -68,7 +67,7 @@ const AccountInfo = () =>
                         <div key="name" className="info">{user.name}</div>
                         <br></br>
                         <div key="email" className="info">{user.email}</div>
-                        <input id="editInfo" type="button" value="Edit" onClick={() => { setName(user.name); setEmail(user.email); setEditing(true) }}/>
+                        <input id="edit-info" type="button" value="Edit" onClick={() => { setName(user.name); setEmail(user.email); setEditing(true) }}/>
                     </div>
                 }
             </div>

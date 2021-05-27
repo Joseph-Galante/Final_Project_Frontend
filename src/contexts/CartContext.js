@@ -17,6 +17,7 @@ const CartProvider = ({children}) => {
     const [cart, setCart] = useState([])
     const [total, setTotal] = useState(0);
     const [prices, setPrices] = useState([0]);
+    const [checkCart, setCheckCart] = useState(false);
 
     let orderTotal = 0;
 
@@ -68,7 +69,8 @@ const CartProvider = ({children}) => {
         getCart,
         addToCart,
         removeFromCart,
-        totalState: [total, setTotal]
+        totalState: [total, setTotal],
+        checkCartState: [checkCart, setCheckCart]
     }
 
     return (

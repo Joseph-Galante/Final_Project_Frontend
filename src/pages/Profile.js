@@ -6,6 +6,7 @@ import env from 'react-dotenv'
 // contexts
 import { MessageContext } from '../contexts/MessageContext';
 import { UserContext } from '../contexts/UserContext';
+import { CartContext } from '../contexts/CartContext';
 
 // components
 import AccountInfo from '../components/AccountInfo';
@@ -21,6 +22,9 @@ const Profile = () =>
     const [user, setUser] = userState;
     const { messageState, displayMessage, clearMessage } = useContext(MessageContext);
     const [ message ] = messageState;
+    const { cartState, totalState, checkCartState, orderTotal, getCart, addToCart, removeFromCart } = useContext(CartContext);
+    const [ cart, setCart ] = cartState;
+    const [ checkCart, setCheckCart ] = checkCartState;
 
     // states
     const [display, setDisplay] = useState('account');
@@ -28,14 +32,15 @@ const Profile = () =>
     
     // on component load
     useEffect(clearMessage, [display]);
+    useEffect(getCart, []);
 
-    const init = () =>
+    const updateMenu = (tab) =>
     {
-        setDisplay('account')
-        document.querySelectorAll('.menuItem').forEach(item => {item.classList.remove('active')});
-        document.querySelector('#account').classList.add('active')
+        setDisplay(tab)
+        document.querySelectorAll('.menu-item').forEach(item => {item.classList.remove('active')});
+        document.querySelector(`#${tab}`).classList.add('active')
     }
-    useEffect(init, [])
+    useEffect(() => {updateMenu('account')}, [])
 
     const getProducts = () =>
     {
@@ -48,40 +53,31 @@ const Profile = () =>
     useEffect(getProducts, [])
 
     return (
-        <div className="profilePage">
-            <div key="profileMenu" className="profileMenu">
-                <div id="account" key="account" className="menuItem" onClick={() => {
-                    setDisplay('account')
-                    document.querySelectorAll('.menuItem').forEach(item => {item.classList.remove('active')});
-                    document.querySelector('#account').classList.add('active');
+        <div className="profile-page">
+            {}
+            <div key="profile-menu" className="profile-menu">
+                <div id="account" key="account" className="menu-item" onClick={() => {
+                    updateMenu('account')
                 }}>
                     <h4>Account</h4>
                 </div>
-                <div id="cart" key="cart" className="menuItem" onClick={() => {
-                    setDisplay('cart')
-                    document.querySelectorAll('.menuItem').forEach(item => {item.classList.remove('active')});
-                    document.querySelector('#cart').classList.add('active');
+                <div id="cart" key="cart" className="menu-item" onClick={() => {
+                    updateMenu('cart')
                 }}>
-                    <h4>Cart</h4>
+                    <h4>Cart ({cart ? cart.length : 0})</h4>
                 </div>
-                <div id="products" key="products" className="menuItem" onClick={() => {
-                    setDisplay('products')
-                    document.querySelectorAll('.menuItem').forEach(item => {item.classList.remove('active')});
-                    document.querySelector('#products').classList.add('active');
+                <div id="products" key="products" className="menu-item" onClick={() => {
+                    updateMenu('products')
                 }}>
                     <h4>Products</h4>
                 </div>
-                <div id="orders" key="orders" className="menuItem" onClick={() => {
-                    setDisplay('orders')
-                    document.querySelectorAll('.menuItem').forEach(item => {item.classList.remove('active')});
-                    document.querySelector('#orders').classList.add('active');
+                <div id="orders" key="orders" className="menu-item" onClick={() => {
+                    updateMenu('orders')
                 }}>
                     <h4>Orders</h4>
                 </div>
-                <div id="create-product" key="create-product" className="menuItem" onClick={() => {
-                    setDisplay('create-product')
-                    document.querySelectorAll('.menuItem').forEach(item => {item.classList.remove('active')});
-                    document.querySelector('#create-product').classList.add('active');
+                <div id="create-product" key="create-product" className="menu-item" onClick={() => {
+                    updateMenu('create-product')
                 }}>
                     <h4>Add Product</h4>
                 </div>

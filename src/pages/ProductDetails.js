@@ -37,6 +37,8 @@ const ProductDetails = (props) =>
     // functions
     const updateMenu = (tab) =>
     {
+        setReviewDescription('')
+        setReviewRating(3)
         setDisplay(tab)
         document.querySelectorAll('.menu-item').forEach(item => {item.classList.remove('active')});
         document.querySelector(`#${tab}`).classList.add('active')
@@ -100,7 +102,7 @@ const ProductDetails = (props) =>
                     {/* {console.log(product)} */}
                     <div className="product-info">
                         <div className="product-info-left">
-                            <img src={product.image} alt={product.name} width={350} height={350}/>
+                            <img src={product.image} alt={product.name} width={525} height={350}/>
                         </div>
                         <div className="product-info-right">
                             <h1>{product.name}</h1>
@@ -161,7 +163,8 @@ const ProductDetails = (props) =>
                                             <h1>Leave a Review</h1>
                                             <input id="review-description-input" type="text" value={reviewDescription} placeholder="Write a review..." onChange={(e) => {setReviewDescription(e.target.value)}} />
                                             <input id="review-rating-input" type="number" value={reviewRating} min={1} max={5} onChange={(e) => {setReviewRating(e.target.value)}} />
-                                            <input type="submit" value="Submit" />
+                                            <br/>
+                                            <input style={{margin: "20px"}}type="submit" value="Submit" />
                                         </form>
                                         :
                                         null

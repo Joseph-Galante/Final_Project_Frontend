@@ -36,6 +36,9 @@ input[type=button]:hover, input[type=submit]:hover, a:hover, #logout:hover {
   /* border-color: hsl(0, 0%, 90%); */
   background-color: hsl(200, 90%, 25%);
 }
+input[type="text"] {
+  width: 70%;
+}
 
 /* ==================== NAVBAR ==================== */
 
@@ -80,6 +83,16 @@ a:hover {
   border-color: hsl(200, 90%, 25%);
   background-color: hsl(200, 90%, 25%);
 }
+#cart-icon {
+  background-image: url(https://i.imgur.com/Pn05H6R.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color:hsl(200, 90%, 50%);
+}
+#cart-icon:hover {
+  background-color: hsl(200, 90%, 25%);
+}
 
 /* ==================== MESSAGES ==================== */
 .success {
@@ -122,17 +135,17 @@ a:hover {
 
 /* ==================== PROFILE ==================== */
 
-.profilePage {
+.profile-page {
   color: hsl(200, 90%, 50%);
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.profileHeader {
+.profile-header {
   border-bottom: 2px solid hsl(200, 90%, 50%);
 }
-.profileMenu, .product-details-menu {
+.profile-menu, .product-details-menu {
   border-top: 2px solid hsl(200, 90%, 50%);
   border-bottom: 4px solid hsl(200, 90%, 50%);
   width: 100%;
@@ -140,7 +153,7 @@ a:hover {
   justify-content: start;
   align-items: center;
 }
-#editInfo {
+#edit-info {
   width: 100px;
   margin: 35px;
 }
@@ -197,6 +210,40 @@ a:hover {
 #create-product {
   position: relative;
   left: 40.5%;
+}
+
+/* ==================== ACCOUNT INFO ==================== */
+
+.profile-display {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+}
+.profile-info {
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 20px;
+  margin: 100px 0;
+}
+.infos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 55px;
+}
+.info-inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5px 0;
+}
+.info-input {
+  margin: auto 20px;
+}
+#editInfo {
+  width: 90%;
 }
 
 /* ==================== PRODUCTS ==================== */
@@ -345,17 +392,20 @@ a:hover {
 }
 .product-info {
   height: 49%;
-  border: 1px solid red;
   display: flex;
 }
 .product-info-left {
-  width: 35%;
+  width: 40%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 }
 .product-info-right {
-  width: 65%;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 }
 .product-details-menu {
   height: 6%;
@@ -363,6 +413,9 @@ a:hover {
 .product-details-display {
   height: 45%;
   margin: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 #soldBy {
   color:hsl(0, 0%, 90%);
@@ -371,6 +424,9 @@ a:hover {
   color:hsl(0, 0%, 60%);
   text-decoration: underline;
   cursor: pointer;
+}
+.review-form {
+  width: 90%;
 }
 
 /* ==================== CART ==================== */
@@ -426,6 +482,22 @@ a:hover {
 
 /* ==================== REVIEWS ==================== */
 
+.review {
+  width: 60%;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  /* border: 2px solid hsl(0, 0%, 60%); */
+}
+.review-top, .review-rating, .review-bottom {
+  display: flex;
+  justify-content: flex-start;
+  margin: 0 10px;
+}
+.review-top, .review-rating {
+  color: hsl(0, 0%, 90%);
+}
 #done-reviewing {
   color:hsl(200, 90%, 50%);
 }

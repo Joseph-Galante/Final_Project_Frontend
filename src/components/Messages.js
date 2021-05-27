@@ -14,7 +14,7 @@ const Messages = () =>
                 :
                 message.content
             }
-        </div> 
+        </div>
     )
 }
 

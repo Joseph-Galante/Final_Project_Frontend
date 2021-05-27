@@ -25,6 +25,7 @@ const NavBar = () =>
                         <Link className="navLink" to="/">Home</Link>
                     </span>
                     <span className="navRight">
+                        <Link className="navLink" id="cart-icon" to="/profile"></Link>
                         <Link className="navLink" to="/profile">Profile</Link>
                         <Link className="navLink" id="logout" to="/" onClick={logoutUser}>Logout</Link>
                     </span>

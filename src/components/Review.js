@@ -2,7 +2,15 @@ const Review = ({ review }) =>
 {
     return (
         <div className="review">
-            {review.writer.name} | {review.description} | {review.rating}
+            <div className="review-top">
+                {review.writer.name}
+            </div>
+            <div className="review-rating">
+                Rating: {review.rating}
+            </div>
+            <div className="review-bottom">
+                {review.description}
+            </div>
         </div>
     )
 }

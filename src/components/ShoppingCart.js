@@ -68,6 +68,7 @@ const ShoppingCart = () => {
                     </form>
                 </div>    
             }
+            <h1>Your Cart</h1>
             {/* if cart exists, check if cart is empty, display cart items if cart exists and is not empty, display loading message if cart doesn't exist */}
             <div className="cart-items-container">
             {cart ? cart.length === 0 ? 'Your cart is empty' : cart.map((item, i) => {return (
@@ -78,13 +79,12 @@ const ShoppingCart = () => {
             )
             }) : 'Getting cart...'}
             </div>
-
             {
                 cart ? cart.length === 0 ?
                     null
                     :
                     <div className="cart-payment-container">
-                        <span className="cart-total-price">Total: ${total}</span>
+                        <span className="cart-total-price">Total: ${Math.round(total * 100) / 100}</span>
                         { checkingOut === false ? 
                         <span className="cart-checkout" onClick={()=>{
                             return setCheckingOut(true)
