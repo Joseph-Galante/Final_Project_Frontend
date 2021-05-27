@@ -149,6 +149,9 @@ a:hover {
 .product:hover {
   cursor: pointer;
 }
+.search-bar {
+  margin: 20px 0;
+}
 
 /* ==================== SIGNUP / LOGIN ==================== */
 

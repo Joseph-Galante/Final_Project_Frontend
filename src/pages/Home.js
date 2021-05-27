@@ -7,6 +7,7 @@ import { UserContext } from '../contexts/UserContext';
 
 // components
 import Product from '../components/Product'
+import SearchBar from '../components/SearchBar'
 
 const Home = () =>
 {
@@ -18,6 +19,8 @@ const Home = () =>
     // states
     const [shouldRedirect, setShouldRedirect] = useState('');
     const [products, setProducts] = useState([])
+    const [filteredProducts, setFilteredProducts] = useState([])
+    const [searchTerm, setSearchTerm] = useState('')
 
     // on component load
     useEffect(clearMessage, []);
@@ -33,11 +36,31 @@ const Home = () =>
     }
     useEffect(getProducts, [])
 
+    const filterProducts = () =>
+    {
+        let filteredProds = []
+        if (searchTerm === '')
+        {
+            filteredProds = products ? products : null;
+        }
+        else
+        {
+            filteredProds = products ? products.filter((product) => {
+                // console.log(product.name)
+                return product.name.toLowerCase().includes(searchTerm)
+            }) : null;
+        }
+
+        setFilteredProducts(filteredProds);
+    }
+    useEffect(filterProducts, [searchTerm, products])
+
     return (
         <div className="home-page">
             {/* {shouldRedirect !== '' ? <Redirect to={shouldRedirect}/> : null} */}
+            <SearchBar setSearchTerm={setSearchTerm}/>
             <div className="product-list">
-                {products ? products.length === 0 ? 'No products' : products.map(product => { return (
+                {filteredProducts ? filteredProducts.length === 0 ? 'No products' : filteredProducts.map(product => { return (
                     <Product key={product.id} product={product} getHomeProducts={getProducts}/>
                 )}) : 'Getting products...'}
             </div>

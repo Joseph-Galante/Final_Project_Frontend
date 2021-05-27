@@ -2,7 +2,7 @@
 import { Link } from 'react-router-dom'
 
 // contexts
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../contexts/UserContext';
 import { CartContext } from '../contexts/CartContext';
 
@@ -12,12 +12,20 @@ import Messages from '../components/Messages'
 
 const NavBar = () =>
 {
-    // states
+    // contexts
     const { userState } = useContext(UserContext);
     const [user, setUser] = userState;
-    const { cartState, checkCartState } = useContext(CartContext);
+    const { cartState, checkCartState, getCart } = useContext(CartContext);
     const [ cart ] = cartState;
     const [ checkCart, setCheckCart ] = checkCartState;
+
+    // states
+    const [ cartItems, setCartItems ] = useState(0)
+
+    // on component load
+    useEffect(() => {
+        if (user.id) { getCart() }
+    }, [user])
 
     // functions
     const logoutUser = () =>
@@ -25,6 +33,13 @@ const NavBar = () =>
         localStorage.removeItem('userId');
         setUser({});
     }
+
+    const cartIcon = () =>
+    {
+        const num = cart.length
+        setCartItems(num)
+    }
+    useEffect(cartIcon, [cart])
 
     return (
         <nav>
@@ -35,7 +50,7 @@ const NavBar = () =>
                     </span>
                     <Messages />
                     <span className="navRight">
-                        <span id="cart-icon-items">{cart ? cart.length : 0}</span>
+                        <span id="cart-icon-items">{cartItems}</span>
                         <Link className="navLink" id="cart-icon" to="/profile" onClick={() => {setCheckCart(true)}}></Link>
                         <Link className="navLink" to="/profile">Profile</Link>
                         <Link className="navLink" id="logout" to="/" onClick={logoutUser}>Logout</Link>
