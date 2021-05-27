@@ -142,7 +142,7 @@ const ProductDetails = (props) =>
                     </div>
                     <div className="product-details-display">
                         {display == 'description' ?
-                            <div>{product.description}</div>
+                            <div className="product-details-description">{product.description}</div>
                             :
                             display == 'reviews' ?
                                 product.reviews ? 
@@ -161,8 +161,10 @@ const ProductDetails = (props) =>
                                 display == 'leave-review' ?
                                         <form className="review-form" onSubmit={(e) => {writeReview(e)}}>
                                             <h1>Leave a Review</h1>
-                                            <input id="review-description-input" type="text" value={reviewDescription} placeholder="Write a review..." onChange={(e) => {setReviewDescription(e.target.value)}} />
-                                            <input id="review-rating-input" type="number" value={reviewRating} min={1} max={5} onChange={(e) => {setReviewRating(e.target.value)}} />
+                                            <div className="review-form-inputs">
+                                                <input id="review-description-input" type="text" value={reviewDescription} placeholder="Write a review..." onChange={(e) => {setReviewDescription(e.target.value)}} />
+                                                <input id="review-rating-input" type="number" value={reviewRating} min={1} max={5} onChange={(e) => {setReviewRating(e.target.value)}} />
+                                            </div>
                                             <br/>
                                             <input style={{margin: "20px"}}type="submit" value="Submit" />
                                         </form>

@@ -148,10 +148,13 @@ a:hover {
 .profile-menu, .product-details-menu {
   border-top: 2px solid hsl(200, 90%, 50%);
   border-bottom: 4px solid hsl(200, 90%, 50%);
-  width: 100%;
+  width: 99.9%;
   display: flex;
   justify-content: start;
   align-items: center;
+}
+.product-details-menu {
+  width: 99.58%;
 }
 #edit-info {
   width: 100px;
@@ -288,9 +291,9 @@ a:hover {
   justify-content: center;
   align-items: center;
 }
-.product-listing-left:hover {
+/* .product-listing-left:hover {
   cursor: pointer;
-}
+} */
 .product-listing-image {
   object-fit: contain;
   width: 180px;
@@ -389,9 +392,14 @@ a:hover {
 .about-product {
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .product-info {
   height: 49%;
+  width: 100%;
   display: flex;
 }
 .product-info-left {
@@ -412,10 +420,14 @@ a:hover {
 }
 .product-details-display {
   height: 45%;
+  width: 100%;
   margin: 20px;
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+}
+.product-details-description {
+  color: hsl(0, 0%, 90%);
 }
 #soldBy {
   color:hsl(0, 0%, 90%);
@@ -426,7 +438,15 @@ a:hover {
   cursor: pointer;
 }
 .review-form {
-  width: 90%;
+  width: 100%;
+}
+.review-form input[type="text"] {
+  width: 60%;
+}
+.review-form-inputs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* ==================== CART ==================== */
@@ -509,6 +529,7 @@ a:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  align-items: center;
   /* border: 2px solid hsl(0, 0%, 60%); */
 }
 .review-top, .review-rating, .review-bottom {
@@ -516,8 +537,11 @@ a:hover {
   justify-content: flex-start;
   margin: 0 10px;
 }
-.review-top, .review-rating {
+.review-top {
   color: hsl(0, 0%, 90%);
+}
+.review-rating {
+  color: hsl(0, 0%, 65%)
 }
 #done-reviewing {
   color:hsl(200, 90%, 50%);
