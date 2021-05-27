@@ -13,7 +13,7 @@ const Orders = () => {
     const [user] = userState
 
     return (
-        <div key="profileDisplay" className="profileDisplay">
+        <div key="profile-display" className="profile-display">
             <div className="orders-container">
                 { user.orders ? user.orders.length === 0 ? 'You have no orders' : user.orders.map((order, i) => {
                     return (

@@ -1,10 +1,11 @@
+// imports
+import axios from 'axios';
+import env from 'react-dotenv';
+
 // contexts
 import { useState, useEffect, useContext } from 'react';
 import { UserContext } from '../contexts/UserContext';
 import { MessageContext } from '../contexts/MessageContext';
-// misc
-import axios from 'axios';
-import env from 'react-dotenv';
 
 const Signup = () =>
 {
@@ -56,33 +57,25 @@ const Signup = () =>
     useEffect(clearMessage, []);
 
     return (
-        <div className="signupPage">
-            <div className="signupForm">
-                <h1>Create an Account</h1>
-                <form onSubmit={handleSubmit}>
-                    <div>
-                        <label htmlFor="name">Name:</label>
-                        <div></div>
+        <div className="signup-page">
+            <h1>Create an Account</h1>
+            <form onSubmit={handleSubmit}>
+                <div className="signup-form">
+                    <div className="signup-labels">
+                        <label htmlFor="name">Name</label>
+                        <label htmlFor="email">Email</label>
+                        <label htmlFor="password">Password</label>
+                        <label htmlFor="passwordConfirm">Confirm Password</label>
+                    </div>
+                    <div className="signup-inputs">
                         <input id="name" type="text" value={name} placeholder="Name" onChange={(e) => {setName(e.target.value)}}/>
-                    </div>
-                    <div>
-                        <label htmlFor="email">Email:</label>
-                        <div></div>
                         <input id="email" type="text" value={email} placeholder="Email" onChange={(e) => {setEmail(e.target.value)}}/>
-                    </div>
-                    <div>
-                        <label htmlFor="password">Password:</label>
-                        <div></div>
                         <input id="password" type="password" value={password} placeholder="Password" onChange={(e) => {setPassword(e.target.value)}}/>
-                    </div>
-                    <div>
-                        <label htmlFor="passwordConfirm">Confirm Password:</label>
-                        <div></div>
                         <input id="passwordConfirm" type="password" value={passwordConfirm} placeholder="Confirm Password" onChange={(e) => {setPasswordConfirm(e.target.value)}}/>
                     </div>
-                    <input type="submit" value="Signup" onClick={handleSubmit}/>
-                </form>
-            </div>
+                </div>
+                <input type="submit" value="Signup" onClick={handleSubmit}/>
+            </form>
         </div>
     )
 }

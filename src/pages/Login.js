@@ -1,10 +1,12 @@
+// imports
+import axios from 'axios';
+import env from 'react-dotenv';
+import { Redirect } from 'react-router-dom';
+
 // contexts
 import { useState, useEffect, useContext } from 'react';
 import { UserContext } from '../contexts/UserContext';
 import { MessageContext } from '../contexts/MessageContext';
-// misc
-import axios from 'axios';
-import env from 'react-dotenv';
 
 const Login = () =>
 {
@@ -16,6 +18,7 @@ const Login = () =>
     const [user, setUser] = userState;
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [redirect, setRedirect] = useState('');
 
     // on component load
     useEffect(clearMessage, []);
@@ -47,21 +50,23 @@ const Login = () =>
     useEffect(clearMessage, []);
 
     return (
-        <div className="loginPage">
-            <div className="loginForm">
-                <h1>Login</h1>
-                <form onSubmit={handleSubmit}>
-                    <div>
-                        <label htmlFor="email">Email:</label>
-                        <input id="email" type="text" value={email} placeholder="Email" onChange={(e) => {setEmail(e.target.value)}}/>
+        <div className="login-page">
+            {redirect ? <Redirect to={redirect} /> : null}
+            <h1>Login</h1>
+            <form onSubmit={handleSubmit}>
+                <div className="login-form">
+                    <div className="login-labels">
+                        <label htmlFor="email">Email</label>
+                        <label htmlFor="password">Password</label>
                     </div>
-                    <div>
-                        <label htmlFor="password">Password:</label>
+                    <div className="login-inputs">
+                        <input id="email" type="text" value={email} placeholder="Email" onChange={(e) => {setEmail(e.target.value)}}/>
                         <input id="password" type="password" value={password} placeholder="Password" onChange={(e) => {setPassword(e.target.value)}}/>
                     </div>
-                    <input type="submit" value="Login" onClick={handleSubmit}/>
-                </form>
-            </div>
+                </div>
+                <input type="submit" value="Login" onClick={handleSubmit}/>
+            </form>
+            <div id="to-signup" onClick={() => {setRedirect('signup')}}>Signup</div>
         </div>
     )
 }

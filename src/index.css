@@ -36,7 +36,7 @@ input[type=button]:hover, input[type=submit]:hover, a:hover, #logout:hover {
   /* border-color: hsl(0, 0%, 90%); */
   background-color: hsl(200, 90%, 25%);
 }
-input[type="text"], input[type="float"] {
+input[type="text"], input[type="float"], input[type="password"] {
   width: 70%;
   margin: 10px;
 }
@@ -70,6 +70,7 @@ nav {
   font-weight: bolder;
 }
 a {
+  margin: 0 8px;
   border-color:hsl(200, 90%, 50%);
 }
 a:hover {
@@ -94,6 +95,22 @@ a:hover {
 }
 #cart-icon:hover {
   background-color: hsl(200, 90%, 25%);
+}
+#cart-icon-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -23px;
+  left: 34px;
+  height: 30px;
+  width: 30px;
+  color: hsl(0, 0%, 90%);
+  background-color: hsl(200, 90%, 50%);
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
 }
 
 /* ==================== MESSAGES ==================== */
@@ -131,6 +148,44 @@ a:hover {
 }
 .product:hover {
   cursor: pointer;
+}
+
+/* ==================== SIGNUP / LOGIN ==================== */
+
+.signup-page, .login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+}
+.signup-form, .login-form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.signup-labels, .login-labels {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.signup-labels label, .login-labels label {
+  margin: 12px 10px;
+}
+.signup-inputs, .login-inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+#to-signup {
+  color: hsl(200, 90%, 50%);
+  margin: 10px 0;
+}
+#to-signup:hover {
+  cursor: pointer;
+  color: hsl(0, 0%, 90%);
+  text-decoration: underline;
 }
 
 /* ==================== PROFILE ==================== */

@@ -15,7 +15,8 @@ const NavBar = () =>
     // states
     const { userState } = useContext(UserContext);
     const [user, setUser] = userState;
-    const { checkCartState } = useContext(CartContext);
+    const { cartState, checkCartState } = useContext(CartContext);
+    const [ cart ] = cartState;
     const [ checkCart, setCheckCart ] = checkCartState;
 
     // functions
@@ -34,6 +35,7 @@ const NavBar = () =>
                     </span>
                     <Messages />
                     <span className="navRight">
+                        <span id="cart-icon-items">{cart ? cart.length : 0}</span>
                         <Link className="navLink" id="cart-icon" to="/profile" onClick={() => {setCheckCart(true)}}></Link>
                         <Link className="navLink" to="/profile">Profile</Link>
                         <Link className="navLink" id="logout" to="/" onClick={logoutUser}>Logout</Link>
