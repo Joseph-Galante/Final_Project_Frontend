@@ -48,9 +48,9 @@ const AccountInfo = () =>
         <div key="profile-display" className="profile-display">
             <div className="profile-info">
                 <div key="labels" className="labels">
-                    <div key="name-label" className="label">Name:</div>
+                    <div key="name-label" className="label">Name</div>
                     <br></br>
-                    <div key="email-label" className="label">Email:</div>
+                    <div key="email-label" className="label">Email</div>
                 </div>
                 {editing ?    
                     <div key="info-inputs" className="info-inputs">

@@ -248,6 +248,11 @@ a:hover {
 #editInfo {
   width: 90%;
 }
+.labels {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
 
 /* ==================== PRODUCTS ==================== */
 
@@ -517,23 +522,30 @@ a:hover {
 .checkout-form {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   width: 100%;
 }
 .checkout-container {
   display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  border: 1px solid red;
 }
 .checkout-labels {
-  width: 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.checkout-labels label {
+  margin: 12px 15px;
+}
+.checkout-inputs {
   display: flex;
   flex-direction: column;
 }
-.checkout-inputs {
-  width: 45%;
-  display: flex;
-  flex-direction: column;
+.checkout-inputs input {
+  width: 100%;
 }
 
 /* ==================== ORDERS ==================== */

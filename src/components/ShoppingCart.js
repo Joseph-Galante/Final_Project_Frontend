@@ -62,26 +62,28 @@ const ShoppingCart = () => {
         <div className="cart-container">
             { redirect ? <Redirect to={redirect} /> : null }
             { checkingOut ?
-                <div className="checkout-container">
-                    <form className="checkout-form" onSubmit={handleCheckout}>
+                <form className="checkout-form" onSubmit={handleCheckout}>
+                    <div className="checkout-container">
                         <div className="checkout-labels">
                             <label htmlFor="address">Shipping Address</label>
                             <label htmlFor="city">City</label>
                             <label htmlFor="state">State</label>
-                            <label htmlFor="zip-code">Zip Code</label>
+                            <label htmlFor="zip">Zip Code</label>
                             <label htmlFor="credit">Credit Card</label>
                         </div>
                         <div className="checkout-inputs">
-                            <input id="address" type="text" value={address} onChange={(e) => {setAddress(e.target.value)}} />
-                            <input id="city" type="text" value={city} onChange={(e) => {setCity(e.target.value)}} />
-                            <input id="state" type="text" value={state} onChange={(e) => {setState(e.target.value)}} />
-                            <input id="zip-code" type="text" value={zip} onChange={(e) => {setZip(e.target.value)}} />
-                            <input id="credit" type="text" value={card} onChange={(e) => {setCard(e.target.value)}} />
+                            <input id="address" type="text" value={address} placeholder="Address" onChange={(e) => {setAddress(e.target.value)}} />
+                            <input id="city" type="text" value={city} placeholder="City" onChange={(e) => {setCity(e.target.value)}} />
+                            <input id="state" type="text" value={state} placeholder="State" onChange={(e) => {setState(e.target.value)}} />
+                            <input id="zip" type="text" value={zip} placeholder="Zip" onChange={(e) => {setZip(e.target.value)}} />
+                            <input id="credit" type="text" value={card} placeholder="Card Number" onChange={(e) => {setCard(e.target.value)}} />
                         </div>
+                    </div>
+                    <div className="checkout-buttons">
                         <input type="submit" value="Submit Payment" />
                         <input id="cancel-checkout" type="button" value="Cancel" onClick={() => {setCheckingOut(false)}} />
-                    </form>
-                </div>
+                    </div>
+                </form>
                 :
                 <div className="cart-display">
                     <h1>Your Cart</h1>
