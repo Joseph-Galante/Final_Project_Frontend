@@ -438,13 +438,19 @@ a:hover {
   padding-top: 20px;
 }
 .cart-item {
+  color:hsl(0, 0%, 65%);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
   width: 400px;
   margin: 15px;
-  border: 1px solid hsl(200, 90%, 50%);
+  /* border: 2px solid hsl(200, 90%, 50%); */
+}
+.cart-item-name:hover {
+  cursor: pointer;
+  color: hsl(0, 0%, 90%);
+  text-decoration: underline;
 }
 .cart-payment-container {
   display: flex;

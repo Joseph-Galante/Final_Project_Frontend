@@ -42,7 +42,7 @@ const Profile = () =>
         document.querySelectorAll('.menu-item').forEach(item => {item.classList.remove('active')});
         document.querySelector(`#${tab}`).classList.add('active')
     }
-    useEffect(() => {updateMenu('create-product')}, [])
+    useEffect(() => {updateMenu('account')}, [])
 
     const resetCheckCart = () =>
     {

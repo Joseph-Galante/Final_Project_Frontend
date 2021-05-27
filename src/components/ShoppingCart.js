@@ -19,6 +19,7 @@ const ShoppingCart = () => {
     const [zip, setZip] = useState('');
     const [state, setState] = useState('');
     const [card, setCard] = useState('');
+    const [redirect, setRedirect] = useState('');
 
     // on component load
     useEffect(getCart, []);
@@ -51,6 +52,7 @@ const ShoppingCart = () => {
 
     return (
         <div className="cart-container">
+            { redirect ? <Redirect to={redirect} /> : null }
             { checkingOut &&
                 <div className="checkout-container">
                     <form className="checkoutForm" onSubmit={handleCheckout}>
@@ -73,7 +75,7 @@ const ShoppingCart = () => {
             <div className="cart-items-container">
             {cart ? cart.length === 0 ? 'Your cart is empty' : cart.map((item, i) => {return (
                 <div className="cart-item" key={i}>
-                    <span>{item.product.name} - ${item.product.price}</span>
+                    <span className="cart-item-name" onClick={() => {setRedirect(`/products/${item.product.id}`)}}>{item.product.name} - ${item.product.price}</span>
                     <input type="button" value="Remove" onClick={() => {removeFromCart(item.id)}} />
                 </div>
             )
