@@ -112,6 +112,16 @@ a:hover {
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
 }
+.home-logo {
+  border: none;
+}
+.home-logo:hover {
+  background: none;
+}
+.home-logo img {
+  margin: -17px -20px;
+  width: 175px;
+}
 
 /* ==================== MESSAGES ==================== */
 
@@ -145,11 +155,13 @@ a:hover {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 .product:hover {
   cursor: pointer;
 }
 .search-bar {
+  width: 50%;
   margin: 20px 0;
 }
 
@@ -329,7 +341,7 @@ a:hover {
   margin: 20px;
   border: 1px solid hsl(200, 90%, 50%);
   border-radius: 20px;
-  width: 70%;
+  width: 90%;
   height: 200px;
 }
 .single-container {
