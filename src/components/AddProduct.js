@@ -7,7 +7,7 @@ import env from 'react-dotenv'
 import { UserContext } from '../contexts/UserContext'
 import { MessageContext } from '../contexts/MessageContext'
 
-const AddProduct = () =>
+const AddProduct = ({ updateMenu }) =>
 {
     // contexts
     const { userState } = useContext(UserContext);
@@ -37,20 +37,28 @@ const AddProduct = () =>
             setDescription('')
             setPrice(0)
             setImage('')
-            displayMessage(true, 'Your product has been listed. Go to your products tab to see your newly added product.')
+            updateMenu('products')
         }).catch(error => console.log(error.message))
     }
 
     return (
-        <div className="add-product" onSubmit={(e) => {addProduct(e)}}>
+        <div className="add-product">
             <h1>List a New Product</h1>
-            <form className="add-product-form">
-                <input type="text" value={name} placeholder="Name" onChange={(e) => {setName(e.target.value)}}/>
-                <input type="text" value={description} placeholder="Description" onChange={(e) => {setDescription(e.target.value)}}/>
-                <input type="float" value={price} placeholder="Price" onChange={(e) => {setPrice(e.target.value)}}/>
-                <input type="text" value={image} placeholder="Image URL" onChange={(e) => {setImage(e.target.value)}}/>
-                <input type="submit" value="Submit"/>
-            </form>
+            <div className="add-product-container">
+                <div className="add-product-labels">
+                    <div className="add-product-label">Name:</div>
+                    <div className="add-product-label">Description:</div>
+                    <div className="add-product-label">Price:</div>
+                    <div className="add-product-label">Image:</div>
+                </div>
+                <form className="add-product-form" onSubmit={(e) => {addProduct(e)}}>
+                    <input type="text" value={name} placeholder="Name" onChange={(e) => {setName(e.target.value)}}/>
+                    <input type="text" value={description} placeholder="Description" onChange={(e) => {setDescription(e.target.value)}}/>
+                    <input type="float" value={price} placeholder="Price" onChange={(e) => {setPrice(e.target.value)}}/>
+                    <input type="text" value={image} placeholder="Image URL" onChange={(e) => {setImage(e.target.value)}}/>
+                    <input id="add-product-submit" type="submit" value="Submit"/>
+                </form>
+            </div>
         </div>
     )
 }

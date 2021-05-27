@@ -2,17 +2,17 @@ const Order = ({ order }) =>
 {
     return (
         <div className="order">
-            <h3>{order.user.name} - {order.address}</h3>
-            <h5>Your Order:</h5>
+            <h2 className="order-header">{order.user.name} - {order.address}</h2>
+            <h4>Your Order</h4>
             {order.cart_items.map(item =>
             {
                 return (
-                    <div key={item.id}>
-                        {item.product.name} - {item.product.price}
+                    <div key={item.id} className="order-product">
+                        {item.product.name} - ${Math.round(item.product.price * 100) / 100}
                     </div>
                 )
             })}
-            <h5>Total: ${order.total}</h5>
+            <h4>Total: ${Math.round(order.total * 100) / 100}</h4>
         </div>
     )
 }

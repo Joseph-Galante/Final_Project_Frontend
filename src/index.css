@@ -32,12 +32,13 @@ input[type=button], input[type=submit], a, #logout {
 }
 input[type=button]:hover, input[type=submit]:hover, a:hover, #logout:hover {
   cursor: pointer;
-  color: whitesmoke;
+  color: hsl(0, 0%, 90%);
   /* border-color: hsl(0, 0%, 90%); */
   background-color: hsl(200, 90%, 25%);
 }
-input[type="text"] {
+input[type="text"], input[type="float"] {
   width: 70%;
+  margin: 10px;
 }
 
 /* ==================== NAVBAR ==================== */
@@ -76,10 +77,10 @@ a:hover {
 #logout, #login {
   border-color: hsl(200, 90%, 50%);
   background-color: hsl(200, 90%, 50%);
-  color: whitesmoke;
+  color: hsl(0, 0%, 90%);
 }
 #logout:hover, #login:hover {
-  color: whitesmoke;
+  color: hsl(0, 0%, 90%);
   border-color: hsl(200, 90%, 25%);
   background-color: hsl(200, 90%, 25%);
 }
@@ -95,9 +96,10 @@ a:hover {
 }
 
 /* ==================== MESSAGES ==================== */
+
 .success {
   color: hsl(200, 90%, 50%);
-  background-color: whitesmoke;
+  background-color: hsl(0, 0%, 90%);
   border-radius: 3%;
   border: 2px solid hsl(200, 90%, 50%);
   padding: 8px;
@@ -109,7 +111,7 @@ a:hover {
 }
 .failure {
   color: red;
-  background-color: whitesmoke;
+  background-color: hsl(0, 0%, 90%);
   border-radius: 3%;
   border: 2px solid red;
   padding: 8px;
@@ -119,7 +121,6 @@ a:hover {
   top: 60px;
   z-index: 1;
 }
-
 
 /* ==================== HOME ==================== */
 
@@ -131,7 +132,6 @@ a:hover {
 .product:hover {
   cursor: pointer;
 }
-
 
 /* ==================== PROFILE ==================== */
 
@@ -196,7 +196,7 @@ a:hover {
   cursor: pointer;
   color: hsl(0, 0%, 60%);
   border-color: hsl(0, 0%, 60%);
-  z-index: 2;
+  /* z-index: 2; */
 }
 .active {
   color: hsl(0, 0%, 90%);
@@ -343,7 +343,7 @@ a:hover {
   text-align: center;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
-  color: whitesmoke;
+  color: hsl(0, 0%, 90%);
   background-color: hsl(200, 90%, 50%);
   border: 1px solid hsl(200, 90%, 50%);
   display: flex;
@@ -362,7 +362,7 @@ a:hover {
   border-top-right-radius: 20px;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
-  color: whitesmoke;
+  color: hsl(0, 0%, 90%);
   background-color: hsl(200, 90%, 50%);
   border: 1px solid hsl(200, 90%, 50%);
 }
@@ -461,7 +461,7 @@ a:hover {
   border-top-right-radius: 20px;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
-  color: whitesmoke;
+  color: hsl(0, 0%, 90%);
   background-color: hsl(200, 90%, 50%);
   border: 1px solid hsl(200, 90%, 50%);
 }
@@ -478,7 +478,22 @@ a:hover {
 
 /* ==================== ORDERS ==================== */
 
-
+.order-list {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.order {
+  margin: 50px 0;
+}
+.order-header {
+  color: hsl(0, 0%, 90%);
+}
+.order-product {
+  color: hsl(0, 0%, 65%);
+}
 
 /* ==================== REVIEWS ==================== */
 
@@ -507,4 +522,32 @@ a:hover {
   cursor: pointer;
 }
 
-/* ==================== REVIEWS ==================== */
+/* ==================== ADD PRODUCT ==================== */
+
+.add-product {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.add-product-container {
+  display: flex;
+}
+.add-product-label {
+  margin: 9px 10px 25px 0;
+}
+.add-product-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+}
+.add-product-form input[type="text"], input[type="float"] {
+  width: 90%;
+}
+#add-product-submit {
+  margin: 20px 90px 0 0;
+}
+
+/* ==================== ADD PRODUCT ==================== */

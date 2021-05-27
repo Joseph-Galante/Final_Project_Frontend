@@ -36,11 +36,13 @@ const Profile = () =>
 
     const updateMenu = (tab) =>
     {
+        clearMessage();
+        getProducts();
         setDisplay(tab);
         document.querySelectorAll('.menu-item').forEach(item => {item.classList.remove('active')});
         document.querySelector(`#${tab}`).classList.add('active')
     }
-    useEffect(() => {updateMenu('account')}, [])
+    useEffect(() => {updateMenu('create-product')}, [])
 
     const resetCheckCart = () =>
     {
@@ -106,10 +108,14 @@ const Profile = () =>
                                 'Getting products...'
                             :
                             display == 'orders' ?
-                                <Orders />
+                                <div className="order-list">
+                                    <h3 style={{color: 
+                                    "hsl(0, 0%, 90%)"}}>Note: The Anduin Team is not responsible for any fluctuations in any item's price. All orders show the items' current prices. The total for each order reflects the price of each item at the time of purchase.</h3>
+                                    <Orders />
+                                </div>
                                 :
                                 display == 'create-product' ?
-                                <AddProduct />
+                                <AddProduct updateMenu={updateMenu}/>
                                 :
                                 null
             }
