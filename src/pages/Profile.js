@@ -36,17 +36,23 @@ const Profile = () =>
 
     const updateMenu = (tab) =>
     {
-        setDisplay(tab)
+        setDisplay(tab);
         document.querySelectorAll('.menu-item').forEach(item => {item.classList.remove('active')});
         document.querySelector(`#${tab}`).classList.add('active')
     }
     useEffect(() => {updateMenu('account')}, [])
 
+    const resetCheckCart = () =>
+    {
+        if (checkCart) { updateMenu('cart'); setCheckCart(false) }
+    }
+    useEffect(resetCheckCart, [checkCart])
+
     const getProducts = () =>
     {
         axios.get(`${env.BACKEND_URL}/users/products`, { headers: { Authorization: localStorage.getItem('userId') }}).then((res) =>
         {
-            console.log(res)
+            // console.log(res)
             setProducts(res.data.products)
         }).catch(error => console.log(error.message))
     }
@@ -54,7 +60,6 @@ const Profile = () =>
 
     return (
         <div className="profile-page">
-            {}
             <div key="profile-menu" className="profile-menu">
                 <div id="account" key="account" className="menu-item" onClick={() => {
                     updateMenu('account')

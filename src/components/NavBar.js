@@ -3,12 +3,15 @@ import { Link } from 'react-router-dom'
 // contexts
 import { useContext } from 'react';
 import { UserContext } from '../contexts/UserContext';
+import { CartContext } from '../contexts/CartContext';
 
 const NavBar = () =>
 {
     // states
     const { userState } = useContext(UserContext);
     const [user, setUser] = userState;
+    const { checkCartState } = useContext(CartContext);
+    const [ checkCart, setCheckCart ] = checkCartState;
 
     // functions
     const logoutUser = () =>
@@ -25,7 +28,7 @@ const NavBar = () =>
                         <Link className="navLink" to="/">Home</Link>
                     </span>
                     <span className="navRight">
-                        <Link className="navLink" id="cart-icon" to="/profile"></Link>
+                        <Link className="navLink" id="cart-icon" to="/profile" onClick={() => {setCheckCart(true)}}></Link>
                         <Link className="navLink" to="/profile">Profile</Link>
                         <Link className="navLink" id="logout" to="/" onClick={logoutUser}>Logout</Link>
                     </span>
