@@ -160,12 +160,12 @@ a:hover {
   width: 100px;
   margin: 35px;
 }
-#cancel-changes, #cancel-price-change {
+#cancel-changes, #cancel-price-change, #cancel-checkout {
   margin: 35px 10px;
   color: hsla(0, 0%, 20%);
   border: 2px solid hsla(0, 0%, 20%);
 }
-#cancel-changes:hover, #cancel-price-change:hover {
+#cancel-changes:hover, #cancel-price-change:hover, #cancel-checkout:hover {
   color: hsla(0, 0%, 90%);
   background-color: hsl(0, 0%, 20%);
   border: 2px solid hsl(0, 0%, 90%);
@@ -454,8 +454,20 @@ a:hover {
 .cart-container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   padding-top: 20px;
+  width: 90%;
+}
+.cart-items-container {
+  width: 30%;
+}
+.cart-display {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .cart-item {
   color:hsl(0, 0%, 65%);
@@ -463,9 +475,15 @@ a:hover {
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  width: 400px;
+  width: 100%;
   margin: 15px;
   /* border: 2px solid hsl(200, 90%, 50%); */
+}
+.cart-item-thumbnail {
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
 }
 .cart-item-name:hover {
   cursor: pointer;
@@ -500,6 +518,22 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+}
+.checkout-container {
+  display: flex;
+  width: 100%;
+  border: 1px solid red;
+}
+.checkout-labels {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+}
+.checkout-inputs {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
 }
 
 /* ==================== ORDERS ==================== */

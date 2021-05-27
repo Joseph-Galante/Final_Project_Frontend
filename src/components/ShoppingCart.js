@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { CartContext } from '../contexts/CartContext';
 import { UserContext } from '../contexts/UserContext';
+import { MessageContext } from '../contexts/MessageContext';
 import env from 'react-dotenv'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
@@ -11,6 +12,7 @@ const ShoppingCart = () => {
     const [ cart, setCart ] = cartState;
     const [ total, setTotal ] = totalState;
     const { verifyUser } = useContext(UserContext);
+    const { displayMessage, clearMessage } = useContext(MessageContext);
 
     // states
     const [checkingOut, setCheckingOut] = useState(false);
@@ -23,9 +25,15 @@ const ShoppingCart = () => {
 
     // on component load
     useEffect(getCart, []);
+    useEffect(clearMessage, []);
 
     const handleCheckout = (e) => {
         e.preventDefault()
+        if (address === '' || city === '' || zip === '' || state === '' || card === '')
+        {
+            displayMessage(false, 'All fields are required for checking out. Please fill in any empty fields.')
+            return
+        }
         createOrder()
         setCart([])
         setCheckingOut(false)
@@ -53,34 +61,43 @@ const ShoppingCart = () => {
     return (
         <div className="cart-container">
             { redirect ? <Redirect to={redirect} /> : null }
-            { checkingOut &&
+            { checkingOut ?
                 <div className="checkout-container">
-                    <form className="checkoutForm" onSubmit={handleCheckout}>
-                        <label htmlFor="address">Shipping Address</label>
-                        <input type="text" value={address} onChange={(e) => {setAddress(e.target.value)}} />
-                        <label htmlFor="city">City</label>
-                        <input type="text" value={city} onChange={(e) => {setCity(e.target.value)}} />
-                        <label htmlFor="state">State</label>
-                        <input type="text" value={state} onChange={(e) => {setState(e.target.value)}} />
-                        <label htmlFor="zip-code">Zip Code</label>
-                        <input type="text" value={zip} onChange={(e) => {setZip(e.target.value)}} />
-                        <label htmlFor="credit">Credit Card</label>
-                        <input type="text" value={card} onChange={(e) => {setCard(e.target.value)}} />
+                    <form className="checkout-form" onSubmit={handleCheckout}>
+                        <div className="checkout-labels">
+                            <label htmlFor="address">Shipping Address</label>
+                            <label htmlFor="city">City</label>
+                            <label htmlFor="state">State</label>
+                            <label htmlFor="zip-code">Zip Code</label>
+                            <label htmlFor="credit">Credit Card</label>
+                        </div>
+                        <div className="checkout-inputs">
+                            <input id="address" type="text" value={address} onChange={(e) => {setAddress(e.target.value)}} />
+                            <input id="city" type="text" value={city} onChange={(e) => {setCity(e.target.value)}} />
+                            <input id="state" type="text" value={state} onChange={(e) => {setState(e.target.value)}} />
+                            <input id="zip-code" type="text" value={zip} onChange={(e) => {setZip(e.target.value)}} />
+                            <input id="credit" type="text" value={card} onChange={(e) => {setCard(e.target.value)}} />
+                        </div>
                         <input type="submit" value="Submit Payment" />
+                        <input id="cancel-checkout" type="button" value="Cancel" onClick={() => {setCheckingOut(false)}} />
                     </form>
-                </div>    
-            }
-            <h1>Your Cart</h1>
-            {/* if cart exists, check if cart is empty, display cart items if cart exists and is not empty, display loading message if cart doesn't exist */}
-            <div className="cart-items-container">
-            {cart ? cart.length === 0 ? 'Your cart is empty' : cart.map((item, i) => {return (
-                <div className="cart-item" key={i}>
-                    <span className="cart-item-name" onClick={() => {setRedirect(`/products/${item.product.id}`)}}>{item.product.name} - ${item.product.price}</span>
-                    <input type="button" value="Remove" onClick={() => {removeFromCart(item.id)}} />
                 </div>
-            )
-            }) : 'Getting cart...'}
-            </div>
+                :
+                <div className="cart-display">
+                    <h1>Your Cart</h1>
+                    {/* if cart exists, check if cart is empty, display cart items if cart exists and is not empty, display loading message if cart doesn't exist */}
+                    <div className="cart-items-container">
+                    {cart ? cart.length === 0 ? 'Your cart is empty' : cart.map((item, i) => {return (
+                        <div className="cart-item" key={i}>
+                            <img className="cart-item-thumbnail" src={item.product.image} alt={item.product.name} width={100} height={100}/>
+                            <span className="cart-item-name" onClick={() => {setRedirect(`/products/${item.product.id}`)}}>{item.product.name} - ${item.product.price}</span>
+                            <input type="button" value="Remove" onClick={() => {removeFromCart(item.id)}} />
+                        </div>
+                    )
+                    }) : 'Getting cart...'}
+                    </div>
+                </div>
+            }
             {
                 cart ? cart.length === 0 ?
                     null
