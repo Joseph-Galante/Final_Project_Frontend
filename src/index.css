@@ -46,10 +46,11 @@ input[type="text"], input[type="float"] {
 nav {
   /* border: 1px solid red; */
   display: flex;
-  flex-direction: column;
+  justify-content: space-evenly;
   background-color: hsla(0, 0%, 70%, 0.35);
   height: 80px;
   position: sticky;
+  top: 0;
 }
 
 .navLeft {
@@ -103,10 +104,8 @@ a:hover {
   border-radius: 3%;
   border: 2px solid hsl(200, 90%, 50%);
   padding: 8px;
-  width: 90%;
-  margin: 10px;
-  position: absolute;
-  top: 60px;
+  position: sticky;
+  top: 20px;
   z-index: 1;
 }
 .failure {
@@ -115,11 +114,12 @@ a:hover {
   border-radius: 3%;
   border: 2px solid red;
   padding: 8px;
-  width: 90%;
-  margin: 10px;
-  position: absolute;
-  top: 60px;
+  position: sticky;
+  top: 20px;
   z-index: 1;
+}
+.success, .failure {
+  width: 100%;
 }
 
 /* ==================== HOME ==================== */

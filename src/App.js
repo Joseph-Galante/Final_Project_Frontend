@@ -34,8 +34,6 @@ function App() {
     <div className="App">
       <NavBar />
 
-      <Messages />
-
       <Route exact path="/" render={() => <Home />} />
 
       <Route exact path="/signup" render={() => {if (user.id) {return <Redirect to="/profile"/>} else {return <Signup />}}}/>

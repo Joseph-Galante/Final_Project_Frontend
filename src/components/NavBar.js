@@ -1,9 +1,14 @@
 // link
 import { Link } from 'react-router-dom'
+
 // contexts
 import { useContext } from 'react';
 import { UserContext } from '../contexts/UserContext';
 import { CartContext } from '../contexts/CartContext';
+
+// components
+import Messages from '../components/Messages'
+
 
 const NavBar = () =>
 {
@@ -27,6 +32,7 @@ const NavBar = () =>
                     <span className="navLeft">
                         <Link className="navLink" to="/">Home</Link>
                     </span>
+                    <Messages />
                     <span className="navRight">
                         <Link className="navLink" id="cart-icon" to="/profile" onClick={() => {setCheckCart(true)}}></Link>
                         <Link className="navLink" to="/profile">Profile</Link>
@@ -38,6 +44,7 @@ const NavBar = () =>
                     <span className="navLeft">
                         <Link className="navLink" to="/">Home</Link>
                     </span>
+                    <Messages />
                     <span className="navRight">
                         <Link className="navLink" to="/signup">Signup</Link>
                         <Link className="navLink" id="login" to="/login">Login</Link>
