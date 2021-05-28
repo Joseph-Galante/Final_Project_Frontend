@@ -61,7 +61,9 @@ const NavBar = () =>
                 :
                 <span>
                     <span className="navLeft">
-                        <Link className="navLink" to="/">Home</Link>
+                        <Link className="navLink" className="home-logo" to="/">
+                            <img src={"https://i.imgur.com/WNAgEe6.png"} />
+                        </Link>
                     </span>
                     <Messages />
                     <span className="navRight">
