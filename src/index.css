@@ -285,7 +285,7 @@ a:hover {
 }
 #create-product {
   position: relative;
-  left: 40.5%;
+  left: 28.9%;
 }
 
 /* ==================== ACCOUNT INFO ==================== */
@@ -669,6 +669,19 @@ a:hover {
   color:hsl(0, 0%, 90%);
   text-decoration: underline;
   cursor: pointer;
+}
+
+/* ==================== USER REVIEWS ==================== */
+
+.user-reviews {
+  width: 100%;
+  margin: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.user-reviews .review {
+  margin: 15px 0;
 }
 
 /* ==================== ADD PRODUCT ==================== */

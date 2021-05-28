@@ -14,6 +14,7 @@ import ShoppingCart from '../components/ShoppingCart';
 import Orders from '../components/Orders';
 import Product from '../components/Product';
 import AddProduct from '../components/AddProduct';
+import UserReviews from '../components/UserReviews';
 
 const Profile = () =>
 {
@@ -83,6 +84,11 @@ const Profile = () =>
                 }}>
                     <h4>Orders</h4>
                 </div>
+                <div id="reviews" key="reviews" className="menu-item" onClick={() => {
+                    updateMenu('reviews')
+                }}>
+                    <h4>Reviews</h4>
+                </div>
                 <div id="create-product" key="create-product" className="menu-item" onClick={() => {
                     updateMenu('create-product')
                 }}>
@@ -117,7 +123,10 @@ const Profile = () =>
                                 display == 'create-product' ?
                                 <AddProduct updateMenu={updateMenu}/>
                                 :
-                                null
+                                display === 'reviews' ?
+                                        <UserReviews />
+                                        :
+                                        null
             }
         </div>
     )

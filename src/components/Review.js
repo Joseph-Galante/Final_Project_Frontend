@@ -3,13 +3,13 @@ const Review = ({ review }) =>
     return (
         <div className="review">
             <div className="review-top">
-                {review.writer.name}
+                {review.review ? review.review.writer.name : review.writer.name}
             </div>
             <div className="review-rating">
-                Rating: {review.rating}
+                Rating: {review.review ? review.review.rating : review.rating}
             </div>
             <div className="review-bottom">
-                {review.description}
+                {review.review ? review.review.description : review.description}
             </div>
         </div>
     )
