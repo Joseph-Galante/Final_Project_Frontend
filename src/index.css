@@ -164,6 +164,9 @@ a:hover {
   width: 50%;
   margin: 20px 0;
 }
+.product-list {
+  width: 90%;
+}
 
 /* ==================== SIGNUP / LOGIN ==================== */
 
