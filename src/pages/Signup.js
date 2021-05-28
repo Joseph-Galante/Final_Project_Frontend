@@ -1,9 +1,10 @@
 // imports
+import { useState, useEffect, useContext } from 'react';
+import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import env from 'react-dotenv';
 
 // contexts
-import { useState, useEffect, useContext } from 'react';
 import { UserContext } from '../contexts/UserContext';
 import { MessageContext } from '../contexts/MessageContext';
 
@@ -19,6 +20,7 @@ const Signup = () =>
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [passwordConfirm, setPasswordConfirm] = useState('');
+    const [redirect, setRedirect] = useState('');
 
     // on component load
     useEffect(clearMessage, []);
@@ -58,6 +60,7 @@ const Signup = () =>
 
     return (
         <div className="signup-page">
+            {redirect ? <Redirect to={redirect} /> : null}
             <h1>Create an Account</h1>
             <form onSubmit={handleSubmit}>
                 <div className="signup-form">
@@ -76,6 +79,7 @@ const Signup = () =>
                 </div>
                 <input type="submit" value="Signup" onClick={handleSubmit}/>
             </form>
+            <div id="to-login" onClick={() => {setRedirect('/login')}}>Already Have an Account? Login</div>
         </div>
     )
 }

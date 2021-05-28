@@ -66,7 +66,7 @@ const Login = () =>
                 </div>
                 <input type="submit" value="Login" onClick={handleSubmit}/>
             </form>
-            <div id="to-signup" onClick={() => {setRedirect('signup')}}>Signup</div>
+            <div id="to-signup" onClick={() => {setRedirect('/signup')}}>Don't Have an Account? Signup</div>
         </div>
     )
 }

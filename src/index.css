@@ -193,11 +193,11 @@ a:hover {
   flex-direction: column;
   align-items: flex-start;
 }
-#to-signup {
+#to-signup, #to-login {
   color: hsl(200, 90%, 50%);
   margin: 10px 0;
 }
-#to-signup:hover {
+#to-signup:hover, #to-login:hover {
   cursor: pointer;
   color: hsl(0, 0%, 90%);
   text-decoration: underline;

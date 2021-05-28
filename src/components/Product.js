@@ -85,7 +85,11 @@ const Product = ({ product, getProducts, getHomeProducts }) =>
                             }
                         </div>
                     </div>
-                    <span className="product-listing-add" onClick={() => {addToCart(product.id)}}>Add to Cart</span>        
+                    {user.id ?
+                        <span className="product-listing-add" onClick={() => {addToCart(product.id)}}>Add to Cart</span>
+                        :
+                        null
+                    }        
                 </div>
             </div>
             :
